@@ -33,6 +33,7 @@ client.on('ready', () => {
     bot.user.setGame('${cfg.prefix}help | ${bot.guilds.size} servers!');
 })
 
+
 client
     .on('guildCreate', console.log)
     .on('guildDelete', console.log)
@@ -42,4 +43,5 @@ client.login(process.env.SECRET);
 /*need constructors from UI. 
 -how to let user adjust perms for different commands?
 -how to let user set admin log channel?
+-
 */
