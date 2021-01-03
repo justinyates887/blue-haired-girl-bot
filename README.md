@@ -4,6 +4,8 @@
 
 **Expected features**
 
+- test
+
 - kick/ban commands
 - audit logs
 - purge/nuke
