@@ -1,17 +1,45 @@
+const env = require('dotenv').config();
 const Discord = require('discord.js');
-const token = 'Nzk0Njc0NTQ4ODc1NDYwNjQ5.X--QWA.PaJIhUtsoHWborgVs1t-ebLVCe4' //be sure to set to env var so can't be seen on github
 const client = new Discord.client();
+const cfg = require('./config.json');
 
 client.on('message', (msg) => {
-    if (msg.content === '!test'){
-        msg.channel.send('Hello ${msg.author}!');
+    if (msg.author.bot || !msg.content.startsWith(cfg.prefix)) return;
+    const args = msg.content.slice(cfg.prefix.length).split(/ +/);
+    const command = args.shift().toLowerCase();
+
+    if (command === 'ban'){
+        if(!msg.member.permissions.has('ADMINISTRATOR')) return msg.reply('you aren\'t an Admin!');
+        const member = msg.mentions.members.first();
+        if(!member) return msg.reply('Please mention the member you would like to ban!');
+        msg.channel.send('Please enter a reason');
+        const rsn = msg.content;
+        member.ban({
+            reason: rsn
+        });
+        //need to add reason functionality
+    }
+
+    if (command === 'kick'){
+        if(!msg.member.permissions.has('ADMINISTRATOR')) return msg.reply('you aren\'t an Admin!');
+        const member = msg.mentions.members.first();
+        if(!member) return msg.reply('Please mention the member you would like to ban!');
+        member.kick;
     }
 })
 
 client.on('ready', () => {
-    console.log('Bot is now connected...');
-
-    client.channels.find(x => x.name === 'test').send('Hello! I am connected!');
+    console.log('Logged in as ${bot.user.tag} (${bot.user.id}) on ${bot.guilds.size} servers');
+    bot.user.setGame('${cfg.prefix}help | ${bot.guilds.size} servers!');
 })
 
-client.login(token);
+client
+    .on('guildCreate', console.log)
+    .on('guildDelete', console.log)
+
+client.login(process.env.SECRET);
+
+/*need constructors from UI. 
+-how to let user adjust perms for different commands?
+-how to let user set admin log channel?
+*/
