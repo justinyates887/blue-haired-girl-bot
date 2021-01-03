@@ -1,7 +1,18 @@
+const yaml = require("js-yaml");
+const fs = require("fs");
+const config = yaml.safeLoad(fs.readFileSync("./config.yml", "utf8"));
+
+
 const env = require('dotenv').config();
 const Discord = require('discord.js');
 const client = new Discord.client();
-const cfg = require('./config.json');
+
+
+
+client.on('ready', () => {
+    console.log('Logged in as ${bot.user.tag} (${bot.user.id}) on ${bot.guilds.size} servers');
+    bot.user.setGame('${cfg.prefix}help | ${bot.guilds.size} servers!');
+});
 
 client.on('message', (msg) => {
     if (msg.author.bot || !msg.content.startsWith(cfg.prefix)) return;
@@ -26,11 +37,6 @@ client.on('message', (msg) => {
         if(!member) return msg.reply('Please mention the member you would like to ban!');
         member.kick;
     }
-})
-
-client.on('ready', () => {
-    console.log('Logged in as ${bot.user.tag} (${bot.user.id}) on ${bot.guilds.size} servers');
-    bot.user.setGame('${cfg.prefix}help | ${bot.guilds.size} servers!');
 })
 
 client
