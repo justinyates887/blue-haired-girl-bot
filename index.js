@@ -48,4 +48,5 @@ client.login(process.env.SECRET);
 /*need constructors from UI. 
 -how to let user adjust perms for different commands?
 -how to let user set admin log channel?
+-
 */
