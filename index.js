@@ -1,5 +1,5 @@
 const Discord = require('discord.js');
-const token = 'Nzk0Njc0NTQ4ODc1NDYwNjQ5.X--QWA.PaJIhUtsoHWborgVs1t-ebLVCe4' //be sure to set to env var so can't be seen on github
+const token = '' //be sure to set to env var so can't be seen on github
 const client = new Discord.client();
 
 client.on('message', (msg) => {
