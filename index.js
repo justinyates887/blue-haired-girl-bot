@@ -7,7 +7,7 @@ client.on('message', (msg) => {
     if (msg.author.bot || !msg.content.startsWith(cfg.prefix)) return;
     const args = msg.content.slice(cfg.prefix.length).split(/ +/);
     const command = args.shift().toLowerCase();
-
+//ban command
     if (command === 'ban'){
         if(!msg.member.permissions.has('ADMINISTRATOR')) return msg.reply('you aren\'t an Admin!');
         const member = msg.mentions.members.first();
@@ -19,7 +19,7 @@ client.on('message', (msg) => {
         });
         //need to add reason functionality
     }
-
+//kick command
     if (command === 'kick'){
         if(!msg.member.permissions.has('ADMINISTRATOR')) return msg.reply('you aren\'t an Admin!');
         const member = msg.mentions.members.first();
