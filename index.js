@@ -17,6 +17,9 @@ client.on('message', (msg) => {
     if (msg.author.bot || !msg.content.startsWith(prefix)) return;
     const args = msg.content.slice(cfg.prefix.length).split(/ +/);
     const command = args.shift().toLowerCase();
+    //test
+    console.log(args);
+    console.log(command);
 
 //ban command
     if (command === 'ban'){
