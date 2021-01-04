@@ -2,7 +2,7 @@
 
 ### The purpose of this bot is to provide an all-encompasing administrative bot for discord servers to reduce bot clutter.
 
-####This development is still in Beta.
+This development is still in Beta.
 
 **Devlopers:**
 
