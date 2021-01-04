@@ -7,12 +7,15 @@ This development is still in Beta.
 Current version 0.0.2
 
 
+
 **Devlopers:**
 
 Justin Yates & Azrael
 
 
-**Expected features**
+
+
+**Expected features in Version 1.0.0**
 
 - kick/ban commands
 - audit logs
@@ -24,13 +27,34 @@ Justin Yates & Azrael
 - warn capabilities w/log
 - blacklist words
 - give roles 
-- auto updates
-- quick announcements
 - message delete/change log
 - block links(with role specific capabilities)
-- support ticket
-- captcha verification
+- invite link for bot
+- invite link for your server
+
+
+
+**Expected in Version 2.0.0**
+
+- quick announcements
+- automatic timed updates and reminders
+- meme functionality
+- giveaways
+- leveling
+
+
+**Expected in Version 3.0.0**
+
+- server stats
 - member rank
 - youtube/twitch notifications
 - welcome card with captcha
-- server stats
+- music functionality
+- reaction roles
+- support ticket
+- captcha verification
+
+
+**Expected in version 4.0.0**
+
+WHO KNOWS? :D
