@@ -1,7 +1,7 @@
 require('dotenv').config(); //get token from env file
 const Discord = require('discord.js'); //initialize discord library adn API's
 const client = new Discord.Client(); //create instance of discord client
-const config = require("./json/config.json"); //initialize config.json
+const config = require("./config.json"); //initialize config.json
 const fs = require('fs'); //initialize fs (goes with discord.collection)
 client.commands = new Discord.Collection(); //for client.command.get
 
