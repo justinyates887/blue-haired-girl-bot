@@ -2,7 +2,7 @@
 
 ### The purpose of this bot is to provide an all-encompasing administrative bot for discord servers to reduce bot clutter.
 
-This development is still in Beta.
+*This development is still in Beta.*
 
 Current version 0.0.2
 
@@ -17,7 +17,7 @@ Justin Yates & Azrael
 
 **Expected features in Version 1.0.0**
 
-- kick/ban commands
+- [x] kick/ban commands
 - audit logs
 - purge/nuke
 - channel creation and deletion w/ log
@@ -60,3 +60,10 @@ Justin Yates & Azrael
 **Expected in version 4.0.0**
 
 WHO KNOWS? :D
+
+---------------------------------------------------------------------------------------------------------------------------
+
+**Current Issues**
+
+- Pretty much everything.
+
