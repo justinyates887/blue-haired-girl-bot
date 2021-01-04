@@ -1,4 +1,3 @@
-<<<<<<< HEAD
 require('dotenv').config();
 const Discord = require('discord.js');
 const client = new Discord.Client();
@@ -12,26 +11,6 @@ client.once('ready', () => {
 client.on('message', (msg) => {
     if (msg.author.bot || !msg.content.startsWith(config.prefix)) return;
     const args = msg.content.slice(config.prefix.length).split(/ +/);
-=======
-const yaml = require("js-yaml");
-const fs = require("fs");
-const config = yaml.safeLoad(fs.readFileSync("./config.yml", "utf8"));
-
-
-require('dotenv').config();
-const Discord = require('discord.js');
-const client = new Discord.client();
-
-
-client.on('ready', () => {
-    console.log(`Logged in as ${bot.user.tag} (${bot.user.id}) on ${bot.guilds.size} servers`);
-    bot.user.setGame(`${cfg.prefix}help | ${bot.guilds.size} servers!`);
-});
-
-client.on('message', (msg) => {
-    if (msg.author.bot || !msg.content.startsWith(prefix)) return;
-    const args = msg.content.slice(cfg.prefix.length).split(/ +/);
->>>>>>> origin/main
     const command = args.shift().toLowerCase();
     //test
     console.log(args);
