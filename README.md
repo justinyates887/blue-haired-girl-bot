@@ -4,9 +4,13 @@
 
 This development is still in Beta.
 
+Current version 0.0.2
+
+
 **Devlopers:**
 
 Justin Yates & Azrael
+
 
 **Expected features**
 
