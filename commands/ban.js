@@ -8,9 +8,8 @@ module.exports = {
 
     execute(msg, args){
         const target = msg.mentions.users.first()  // The target that we are trying to ban
-        //const user = msg.guildMember(msg.mentions.target.first() || msg.guildMembers.get(args[0]));
         var banReason; // Reason of the ban
-        const bot = "794674548875460649"
+        const bot = "794674548875460649"//bot uID
 
 
     if(msg.member.roles.cache.has(config.adminRole)){
@@ -18,11 +17,11 @@ module.exports = {
             banReason = args.slice(1).join(" "); // Reason of the ban (Everything behind the mention)
         if (!target) { // Does this if the target did not tag a member
             if (config.embeds === true) { //Checks if the embed option is true then creates and sends this embed 
-                let embed = new Discord.MessageEmbed()
-                    .setAuthor("Nice try!")
-                    .setColor("#486dAA")
-                    .setDescription("No target found please @ the target your trying to ban")
-                    .setFooter(embeds)
+                let embed = new Discord.MessageEmbed() //sets send card message
+                    .setAuthor("Nice try!") // Header of card
+                    .setColor("#486dAA") //Side bar color
+                    .setDescription("No target found please @ the target your trying to ban") //main text body
+                    .setFooter(embeds) //footer/watermark
                 return msg.channel.send(embed);
         }
     }
@@ -84,7 +83,7 @@ module.exports = {
         memberTarget.ban({
         });
     }else{
-        msg.channel.send(`Could not kick member`);
+        msg.channel.send(`Could not ban member`);
     }
         var embeds1;
         if (config.override === true) {
@@ -127,7 +126,7 @@ module.exports = {
                 .addField("Reason", `${banReason}`)
                 .setFooter(`${embeds2}`);
             try{
-            return msg.guild.channels.find(ch => ch.name.includes('logs')).send(banEmbed);
+            return msg.guild.channels.find(ch => ch.name.includes('logs')).send(banEmbed); //needs to change this to a var so user can set own log channel
             }
             catch(error){
                 if(error){
