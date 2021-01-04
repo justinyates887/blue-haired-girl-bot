@@ -1,11 +1,22 @@
-require('dotenv').config();
-const Discord = require('discord.js');
-const client = new Discord.Client();
-const config = require("./config.json");
+require('dotenv').config(); //get token from env file
+const Discord = require('discord.js'); //initialize discord library adn API's
+const client = new Discord.Client(); //create instance of discord client
+const config = require("./json/config.json"); //initialize config.json
+const fs = require('fs'); //initialize fs (goes with discord.collection)
+client.commands = new Discord.Collection(); //for client.command.get
 
+//This will read the directory of discord's commands and filter it through our file.
+const commandFiles = fs.readdirSync('./commands/').filter(file => file.endsWith('.js'));
+    //for loop checks all command files for which file it needs
+for(const file of commandFiles){
+    const command = require(`./commands/${file}`); //gets name of file from for loops
+    client.commands.set(command.name, command);
+}
+
+//
 client.once('ready', () => {
     console.log(`Logged in as ${client.user.tag} (${client.user.id}) on ${client.guilds.size} servers`);
-    bot.user.setGame(`${config.prefix}help | ${client.guilds.size} servers!`);
+    client.user.setGame(`${config.prefix}help | ${client.guilds.size} servers!`);
 });
 
 client.on('message', (msg) => {
@@ -13,48 +24,23 @@ client.on('message', (msg) => {
     const args = msg.content.slice(config.prefix.length).split(/ +/);
     const command = args.shift().toLowerCase();
    
-    if(command === 'clear'){
+    if (command === 'clear'){
         client.commands.get('clear').execute(msg, args);
-    } else if(command === 'ban'){
-        client.command.get('ban').execute(msg, args);
-    } else if(command === 'kick'){
-        client.command.get('kick').execute(msg, args);
+    } else if (command === 'ban'){
+        client.commands.get('ban').execute(msg, args);
+    } else if (command === 'kick'){
+        client.commands.get('kick').execute(msg, args);
     }
 
     // *******keep for testing**********
     console.log(args);
     console.log(command);
-    
-// // ban command
-//     if (command === 'ban'){
-//         if(!msg.member.permissions.has('ADMINISTRATOR')) return msg.reply('you aren\'t an Admin!');
-//         const member = msg.mentions.members.first();
-//         if(!member) return msg.reply('please mention the member you would like to ban!');
-//         member.ban({
-//             reason: args(1)
-//         });
-//         msg.channel.send(`${member} banned sucsesfully!`);
-//         //need to add reason functionality
-//     }
-// // kick command
-//     if (command === 'kick'){
-//         if(!msg.member.permissions.has('ADMINISTRATOR')) return msg.reply('you aren\'t an Admin!');
-//         const member = msg.mentions.members.first();
-//         if(!member) return msg.reply('please mention the member you would like to ban!');
-//         member.kick;
-//     }
+    // *******keep for testing**********
 
 });
-//mute command
 
 client
     .on('guildCreate', console.log)
     .on('guildDelete', console.log)
 
-client.login(process.env.SECRET);
-
-/*need constructors from UI. 
--how to let user adjust perms for different commands?
--how to let user set admin log channel?
--
-*/
+client.login(process.env.SECRET); //adds token so bot will initalize from .emv
