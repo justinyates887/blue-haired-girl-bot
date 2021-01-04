@@ -1,10 +1,14 @@
 ## Welcome to the official "The Blue Haired Girl" Discord bot project!
 
-#### The purpose of this bot is to provide an all-encompasing administrative bot for discord servers to reduce bot clutter.
+### The purpose of this bot is to provide an all-encompasing administrative bot for discord servers to reduce bot clutter.
+
+####This development is still in Beta.
+
+**Devlopers:**
+
+Justin Yates & Azrael
 
 **Expected features**
-
-- test
 
 - kick/ban commands
 - audit logs
