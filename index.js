@@ -4,6 +4,7 @@ const client = new Discord.Client();        //create instance of discord client
 const config = require("./config.json");    //initialize config.json
 const fs = require('fs');                   //initialize fs (goes with discord.collection)
 client.commands = new Discord.Collection(); //for client.command.get
+const bot = '794674548875460649';           //bot Uid
 
 //This will read the directory of discord's commands and filter it through our file.
 const commandFiles = fs.readdirSync('./commands/').filter(file => file.endsWith('.js'));
@@ -17,7 +18,7 @@ for(const file of commandFiles){
 //log connection status and se tthe "Now playing" of the bot once activated and ready.
 client.once('ready', () => {
     console.log(`Logged in as ${client.user.tag} (${client.user.id}) on ${client.guilds.size} servers`);
-    client.user.setGame(`${config.prefix}help | ${client.guilds.size} servers!`);
+    //client.user.setGame(`${config.prefix}help | ${client.guilds.size} servers!`);
 });
 
 //checks meesages to listen for command
@@ -39,22 +40,17 @@ client.on('message', (msg) => {
     } else if (command === 'purge'){
         client.commands.get('purge').execute(msg, args);
     } else if (command === 'nuke'){
-        client.commands.get('nuke').execute(msg);
+        client.commands.get('nuke').execute(msg, bot);
     } else if(command === 'channelcreate'){
         client.commands.get('channelcreate').execute(msg, args);
+    } else if (command === 'deletechannel'){
+        client.commands.get('deletechannel').execute(msg, args);
     }
 
-    // *******keep for testing**********
-    //console.log(args);
-    //console.log(command);
-    // *******keep for testing**********
-
 });
-
-//gives a thank you when bot joins and goodbye when leaves
 client
     .on('guildCreate', console.log)
     .on('guildDelete', console.log)
 
 //adds token so bot will initalize from .emv
-client.login(process.env.SECRET); 
+client.login(process.env.SECRET)
