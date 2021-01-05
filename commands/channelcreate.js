@@ -7,7 +7,11 @@ module.exports = {
     description: 'creates a channel, can target category',
 
     execute(msg, args){
-        if(!args.shift()){
+    let channelType;
+    let channelName;
+
+    //Checks to see if there is a channelType arg
+        if(!args[0]){
             if (config.embeds === true) { //Checks if the embed option is true then creates and sends this embed 
                 let embed = new Discord.MessageEmbed() //sets send card message
                     .setAuthor("Oops!") // Header of card
@@ -16,12 +20,20 @@ module.exports = {
                     .setFooter(config.footer) //footer/watermark
                 return msg.channel.send(embed);
             }
-        } else if (args.shift()){
-            const channelType = args.shift().toLowerCase();
-        } else if (!msg.member.hasPermission('ADMINISTRATOR')) {
-            msg.channel.send('missing permissions')
-        } else if (channelType === 'text'){
-            const channelName = args.join('-');
+        } else{
+            channelType = args.shift().toLowerCase();
+        } 
+        
+        //checks for admin privs
+        if (!msg.member.hasPermission('ADMINISTRATOR')) {
+            return msg.channel.send('missing permissions')
+        } else if (channelType === 'text'){ //if channelType arg is text...
+            if(args[1] == false){
+                channelName = args;
+            } else{
+                channelName = args.join('-')
+            }
+             
             if (!channelName){
                 if (config.embeds === true) { //Checks if the embed option is true then creates and sends this embed 
                     let embed = new Discord.MessageEmbed() //sets send card message
@@ -49,20 +61,26 @@ module.exports = {
                     return msg.channel.send(embed);
                 }
         } else if(channelType === 'voice'){
-            const channelName = args.join(' ');
-            if (config.embeds === true) { //Checks if the embed option is true then creates and sends this embed 
-                let embed = new Discord.MessageEmbed() //sets send card message
-                    .setAuthor("Oops!") // Header of card
-                    .setColor("#486dAA") //Side bar color
-                    .setDescription("Channel name is incorrect, please type a valid channel name!") //main text body
-                    .setFooter(config.footer) //footer/watermark
-                return msg.channel.send(embed);
+            if(args[1] == false){
+                channelName = args;
+            } else{
+                channelName = args.join(' ')
             }
-            message.guild.channels.create(channelName, {
+            if(!channelName){
+                if (config.embeds === true) { //Checks if the embed option is true then creates and sends this embed 
+                    let embed = new Discord.MessageEmbed() //sets send card message
+                        .setAuthor("Oops!") // Header of card
+                        .setColor("#486dAA") //Side bar color
+                        .setDescription("Channel name is incorrect, please type a valid channel name!") //main text body
+                        .setFooter(config.footer) //footer/watermark
+                    return msg.channel.send(embed);
+                }
+            }
+            msg.guild.channels.create(channelName, {
                 type: channelType,
                 permissionOverwrites: [
                     {
-                        id: message.guild.id,
+                        id: msg.guild.id,
                         allow: ['VIEW_CHANNEL'],
                     }]
                 })
