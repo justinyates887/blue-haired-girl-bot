@@ -19,7 +19,7 @@ Justin Yates & Azrael
 
 - [x] kick/ban commands
 - audit logs
-- purge/nuke
+- [x] purge/nuke
 - channel creation and deletion w/ log
 - role specific functionality
 - self contained configuration
