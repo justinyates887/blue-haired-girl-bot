@@ -31,8 +31,8 @@ Justin Yates & Azrael
 - block links(with role specific capabilities)
 - [x] invite link for bot
 - [x] te link for your server
-- !developers (info on devs)
-- !donate :)
+- [x] !developers (info on devs)
+- [x] !donate :)
 - change prefix to desired
 
 ---------------------------------------------------------------------------------------------------------------------------
