@@ -1,8 +1,9 @@
 //This connects your packages
 
-/* const config = require("../config.json"); //initialize config.json
-   const fs = require("fs");
-   const Discord = require("discord.js");
+/* 
+const config = require("../config.json"); //initialize config.json
+const fs = require("fs");
+const Discord = require("discord.js");
 */
 
 
