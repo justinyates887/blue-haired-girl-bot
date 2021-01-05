@@ -38,11 +38,13 @@ client.on('message', (msg) => {
         client.commands.get('kick').execute(msg, args);
     } else if (command === 'purge'){
         client.commands.get('purge').execute(msg, args);
+    } else if (command === 'nuke'){
+        client.commands.get('nuke').execute(msg);
     }
 
     // *******keep for testing**********
-    console.log(args);
-    console.log(command);
+    //console.log(args);
+    //console.log(command);
     // *******keep for testing**********
 
 });
