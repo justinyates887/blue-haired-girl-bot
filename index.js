@@ -42,6 +42,8 @@ client.on('message', (msg) => {
         client.commands.get('nuke').execute(msg);
     } else if(command === 'channelcreate'){
         client.commands.get('channelcreate').execute(msg, args);
+    } else if (command === 'deletechannel'){
+        client.commands.get('deletechannel').execute(msg, args);
     }
 
 });
