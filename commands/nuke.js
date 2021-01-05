@@ -29,7 +29,9 @@ module.exports = {
             })
             .then(msg => {
                 msg = message.first()
-                if(msg.content.toUpperCase() === 'yes') { **********add code below here***************
+                if(msg.content.toUpperCase() === 'yes') {
+                    
+                    **********add code below here***************
             })
   */          
             msg.channel.clone().then(channel => {

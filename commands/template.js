@@ -10,7 +10,8 @@ const Discord = require("discord.js");
 
 //This extends index
 
-/* module.exports = {
+/*
+ module.exports = {
     name: '',
     description: '',
 
@@ -30,7 +31,7 @@ if (config.embeds === true) { //Checks if the embed option is true then creates 
         .setAuthor("Nice try!") // Header of card
         .setColor("#486dAA") //Side bar color
         .setDescription("No target found please @ the target your trying to ban") //main text body
-        .setFooter(embeds) //footer/watermark
+        .setFooter(config.footer) //footer/watermark
     return msg.channel.send(embed);
 }
 */
