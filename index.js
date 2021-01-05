@@ -42,17 +42,10 @@ client.on('message', (msg) => {
         client.commands.get('nuke').execute(msg);
     }
 
-    // *******keep for testing**********
-    //console.log(args);
-    //console.log(command);
-    // *******keep for testing**********
-
-    // *******keep for testing**********
-
-//gives a thank you when bot joins and goodbye when leaves
+});
 client
     .on('guildCreate', console.log)
     .on('guildDelete', console.log)
 
 //adds token so bot will initalize from .emv
-client.login(process.env.SECRET); 
+client.login(process.env.SECRET)
