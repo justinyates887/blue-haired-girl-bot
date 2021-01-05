@@ -23,21 +23,46 @@ client.on('message', (msg) => {
     if (msg.author.bot || !msg.content.startsWith(config.prefix)) return;
     const args = msg.content.slice(config.prefix.length).split(/ +/);
     const command = args.shift().toLowerCase();
-   
-    if (command === 'clear'){
-        client.commands.get('clear').execute(msg, args);
-    } else if (command === 'ban'){
-        client.commands.get('ban').execute(msg, args);
-    } else if (command === 'kick'){
-        client.commands.get('kick').execute(msg, args);
-    }
-
-    // *******keep for testing**********
-    console.log(args);
-    console.log(command);
-    // *******keep for testing**********
-
 });
+    
+
+    module.exports = {
+        start: function () {
+          console.log("Bot is starting... Please wait.");
+          console.log("Bot is attempting to load commands. Please wait");
+          const { promisify } = require("util");
+          const { join, extname } = require("path");
+          const { readdir, lstat } = require("fs");
+          const readdirPromise = promisify(readdir);
+          const lstatPromise = promisify(lstat);
+          const COMMANDS_FOLDER_PATH = join(__dirname, "../commands");
+      
+          const readAllCommands = async (startPath = COMMANDS_FOLDER_PATH) => {
+            const files = await readdirPromise(startPath);
+            for (const f of files) {
+              const path = join(startPath, f);
+              if (extname(f) === ".js") {
+                let props = require(path);
+                // Commands
+                if (config.debug_mode === true) { console.log(`Command: ${f} -> Loaded.`); }
+                client.commands.set(props.help.name, props);
+                // Aliases
+                props.help.aliases.forEach(alias => {
+                  client.aliases.set(alias, props.help.name);
+                });
+              } else {
+                const stats = await lstatPromise(path);
+                if (stats.isDirectory() && !stats.isSymbolicLink()) await readAllCommands(path);
+              }
+            }
+          };
+          readAllCommands().then(console.log("Launch: Commands Loaded."));
+
+        }
+    }
+    // *******keep for testing**********
+
+    // *******keep for testing**********
 
 client
     .on('guildCreate', console.log)

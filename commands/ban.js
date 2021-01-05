@@ -2,16 +2,11 @@ const config = require("../config.json"); //initialize config.json
 const fs = require("fs");
 const Discord = require("discord.js");
 
-module.exports = {
-    name: 'ban',
-    description: "This Ban\'s player!",
-
-    execute(msg, args){
+    exports.run = async (bot, msg, args) => {
         const target = msg.mentions.users.first()  // The target that we are trying to ban
         //const user = msg.guildMember(msg.mentions.target.first() || msg.guildMembers.get(args[0]));
         var banReason; // Reason of the ban
-        const bot = "794674548875460649"
-
+        //const bot = "794674548875460649"
 
     if(msg.member.roles.cache.has(config.adminRole)){
      // Allows only members with the admin role to kick players
@@ -83,6 +78,7 @@ module.exports = {
         const memberTarget = msg.guild.members.cache.get(target.id);
         memberTarget.ban({
         });
+        banned === true;
     }else{
         msg.channel.send(`Could not kick member`);
     }
@@ -90,6 +86,8 @@ module.exports = {
         if (config.override === true) {
             embeds1 = config.footer;
         }
+
+        console.log(args);
         // Then it will send this embed to say
         // that the user has been banned
         if (config.embeds === true) {
@@ -115,19 +113,19 @@ module.exports = {
         // Checks the config if the user wants logging enabled
         // if so it does this:
         var embeds2;
-        if (config.override === true) {
+        if (config.override === true){
             embeds2 = config.footer;
         } 
-        if (config.log === true) {
+        if (config.embeds === true) {
             let banEmbed = new Discord.MessageEmbed()
                 .setAuthor("Action | User banned")
                 .setColor("#486dAA")
-                .addField("Staff Member", `<@${msg.author.id}>`)
-                .addField("User Banned", `<@${target.id}>`)
+                .addField("Staff Member", `${msg.author.id}>`)
+                .addField("User Banned", `${target.id}>`)
                 .addField("Reason", `${banReason}`)
                 .setFooter(`${embeds2}`);
             try{
-            return msg.guild.channels.find(ch => ch.name.includes('logs')).send(banEmbed);
+            return msg.guild.channels.find(ch => ch.name.includes(`${logs}`)).send(banEmbed);
             }
             catch(error){
                 if(error){
@@ -138,11 +136,11 @@ module.exports = {
                         .setFooter(`${embeds2}`);
                 }
             }
+            console.log(`${logs}`)
         }
     } else {
         msg.channel.send('You do not have the permissions to ban a member')
     }
-}
 }
 
 /*
