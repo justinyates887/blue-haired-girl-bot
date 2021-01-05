@@ -53,4 +53,3 @@ client
 
 //adds token so bot will initalize from .emv
 client.login(process.env.SECRET)
-
