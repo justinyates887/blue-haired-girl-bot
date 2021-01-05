@@ -36,6 +36,8 @@ client.on('message', (msg) => {
         client.commands.get('ban').execute(msg, args);
     } else if (command === 'kick'){
         client.commands.get('kick').execute(msg, args);
+    } else if (command === 'purge'){
+        client.commands.get('purge').execute(msg, args);
     }
 
     // *******keep for testing**********
