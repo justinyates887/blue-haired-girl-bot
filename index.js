@@ -17,11 +17,11 @@ for(const file of commandFiles){
 //log connection status and se tthe "Now playing" of the bot once activated and ready.
 client.once('ready', () => {
     console.log(`Logged in as ${client.user.tag} (${client.user.id}) on ${client.guilds.size} servers`);
-    client.user.setGame(`${config.prefix}help | ${client.guilds.size} servers!`);
+    //client.user.setGame(`${config.prefix}help | ${client.guilds.size} servers!`);
 });
 
 //checks meesages to listen for command
-client.on('message', (msg) => {
+client.on('message', async (msg) => {
     //if there is no message end the method
     if (msg.author.bot || !msg.content.startsWith(config.prefix)) return;
 
