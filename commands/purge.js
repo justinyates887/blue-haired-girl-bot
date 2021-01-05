@@ -40,10 +40,7 @@ module.exports = {
                     .setFooter(config.footer) //footer/watermark
                 return msg.channel.send(embed);
             }
-        }
-        
-        /***************this function below does not work no async***********/
-        else{
+        } else{
             await msg.channel.messages.fetch({ limit: args }) //Specify the limit (amount) of messages to fetch.
                 .then(messages => { // Fetches the messages from the current channel
                     msg.channel.bulkDelete(messages) //deletes messages

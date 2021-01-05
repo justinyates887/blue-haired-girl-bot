@@ -4,6 +4,7 @@ const client = new Discord.Client();        //create instance of discord client
 const config = require("./config.json");    //initialize config.json
 const fs = require('fs');                   //initialize fs (goes with discord.collection)
 client.commands = new Discord.Collection(); //for client.command.get
+const bot = '794674548875460649';           //bot Uid
 
 //This will read the directory of discord's commands and filter it through our file.
 const commandFiles = fs.readdirSync('./commands/').filter(file => file.endsWith('.js'));
@@ -21,7 +22,7 @@ client.once('ready', () => {
 });
 
 //checks meesages to listen for command
-client.on('message', async (msg) => {
+client.on('message', (msg) => {
     //if there is no message end the method
     if (msg.author.bot || !msg.content.startsWith(config.prefix)) return;
 
@@ -39,7 +40,7 @@ client.on('message', async (msg) => {
     } else if (command === 'purge'){
         client.commands.get('purge').execute(msg, args);
     } else if (command === 'nuke'){
-        client.commands.get('nuke').execute(msg);
+        client.commands.get('nuke').execute(msg, bot);
     } else if(command === 'channelcreate'){
         client.commands.get('channelcreate').execute(msg, args);
     } else if (command === 'deletechannel'){
