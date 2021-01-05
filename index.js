@@ -1,8 +1,9 @@
-require('dotenv').config();                 //get token from env file
-const Discord = require('discord.js');      //initialize discord library adn API's
-const client = new Discord.Client();        //create instance of discord client
-const config = require("./config.json");    //initialize config.json
-const fs = require('fs');                   //initialize fs (goes with discord.collection)
+require('dotenv').config()                 //get token from env file
+const Discord = require('discord.js')      //initialize discord library adn API's
+const client = new Discord.Client()        //create instance of discord client
+const config = require("./config.json")   //initialize config.json
+const path = require('path')
+const fs = require('fs')                  //initialize fs (goes with discord.collection)
 client.commands = new Discord.Collection(); //for client.command.get
 
 //This will read the directory of discord's commands and filter it through our file.
@@ -20,8 +21,8 @@ client.once('ready', () => {
     client.user.setGame(`${config.prefix}help | ${client.guilds.size} servers!`);
 });
 
-//checks meesages to listen for command
-client.on('message', (msg) => {
+
+client.on('message', async (msg) => {
     //if there is no message end the method
     if (msg.author.bot || !msg.content.startsWith(config.prefix)) return;
 
@@ -43,9 +44,11 @@ client.on('message', (msg) => {
     }
 
 });
+
 client
     .on('guildCreate', console.log)
     .on('guildDelete', console.log)
 
 //adds token so bot will initalize from .emv
 client.login(process.env.SECRET)
+

@@ -2,7 +2,13 @@ const config = require("../config.json"); //initialize config.json
 const fs = require("fs");
 const Discord = require("discord.js");
 
-    exports.run = async (bot, msg, args) => {
+
+
+module.exports = {
+    name: 'ban',
+    description: "This ban\'s player!",
+
+    execute(msg, args) {
         const target = msg.mentions.users.first()  // The target that we are trying to ban
         var banReason; // Reason of the ban
         const bot = "794674548875460649"//bot uID
@@ -142,7 +148,7 @@ const Discord = require("discord.js");
         msg.channel.send('You do not have the permissions to ban a member')
     }
 }
-
+}
 /*
 -needs perms
 -needs reason
