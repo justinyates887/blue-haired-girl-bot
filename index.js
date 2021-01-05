@@ -16,9 +16,10 @@ for(const file of commandFiles){
 }
 
 //log connection status and se tthe "Now playing" of the bot once activated and ready.
-client.once('ready', () => {
-    console.log(`Logged in as ${client.user.tag} (${client.user.id}) on ${client.guilds.size} servers`);
-    //client.user.setGame(`${config.prefix}help | ${client.guilds.size} servers!`);
+client.once('ready', async () => {
+    const servers = client.guilds.cache.size;
+    console.log(`Logged in as ${client.user.tag} (${client.user.id}) on ${servers} servers`);
+    client.user.setActivity(`${config.prefix}help | ${servers} servers!`);
 });
 
 //checks meesages to listen for command
@@ -32,7 +33,7 @@ client.on('message', (msg) => {
    
     //iterates through possible commands to see if any match, if so runs the filepath
     if (command === 'help'){
-        client.commands.get('help').execute(msg, args);
+        client.commands.get('help').execute(msg);
     } else if (command === 'ban'){
         client.commands.get('ban').execute(msg, args);
     } else if (command === 'kick'){
@@ -45,6 +46,14 @@ client.on('message', (msg) => {
         client.commands.get('channelcreate').execute(msg, args);
     } else if (command === 'deletechannel'){
         client.commands.get('deletechannel').execute(msg, args);
+    } else if (command === 'invitebot'){
+        client.commands.get('invitebot').execute(msg);
+    } else if (command === 'invitelink'){
+        client.commands.get('invitelink').execute(msg);
+    } else if (command === 'developers'){
+        client.commands.get('developers').execute(msg);
+    } else if (command === 'donate'){
+        client.commands.get('donate').execute(msg);
     }
 
 });
