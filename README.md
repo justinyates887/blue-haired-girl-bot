@@ -29,7 +29,7 @@ Justin Yates & Azrael
 - give roles 
 - message delete/change log
 - block links(with role specific capabilities)
-- invite link for bot
+- [x] invite link for bot
 - invite link for your server
 - !developers (info on devs)
 - !donate :)
