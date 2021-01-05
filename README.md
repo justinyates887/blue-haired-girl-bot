@@ -31,6 +31,9 @@ Justin Yates & Azrael
 - block links(with role specific capabilities)
 - invite link for bot
 - invite link for your server
+- !developers (info on devs)
+- !donate :)
+- change prefix to desired
 
 ---------------------------------------------------------------------------------------------------------------------------
 
@@ -58,7 +61,8 @@ Justin Yates & Azrael
 ---------------------------------------------------------------------------------------------------------------------------
 
 **Expected in version 4.0.0**
-
+- !easteregg comand that gives you a rondom easter egg fact
+- !random command that executes a random, non admin command.
 WHO KNOWS? :D
 
 ---------------------------------------------------------------------------------------------------------------------------
