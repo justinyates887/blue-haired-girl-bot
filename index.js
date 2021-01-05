@@ -30,7 +30,7 @@ client.on('message', async (msg) => {
     const args = msg.content.slice(config.prefix.length).split(/ +/);
     const command = args.shift().toLowerCase();
    
-    //iterates through possible commands to see if any match, if so runs the subfile
+    //iterates through possible commands to see if any match, if so runs the filepath
     if (command === 'help'){
         client.commands.get('help').execute(msg, args);
     } else if (command === 'ban'){
@@ -41,6 +41,8 @@ client.on('message', async (msg) => {
         client.commands.get('purge').execute(msg, args);
     } else if (command === 'nuke'){
         client.commands.get('nuke').execute(msg);
+    } else if(command === 'channelcreate'){
+        client.commands.get('channelcreate').execute(msg, args);
     }
 
 });
