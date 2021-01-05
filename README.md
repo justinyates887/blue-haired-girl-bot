@@ -30,7 +30,7 @@ Justin Yates & Azrael
 - message delete/change log
 - block links(with role specific capabilities)
 - [x] invite link for bot
-- invite link for your server
+- [x] te link for your server
 - !developers (info on devs)
 - !donate :)
 - change prefix to desired
