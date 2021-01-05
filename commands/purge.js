@@ -6,7 +6,7 @@ module.exports = {
     name: 'purge',
     description: 'purges a select number of chats',
 
-    execute(msg, args){
+    async execute(msg, args){
         const amount = args.join(' '); //We want the argument (number) to be the amount, so we do a join on the arg.
 
         //test
@@ -43,10 +43,10 @@ module.exports = {
         }
         
         /***************this function below does not work no async***********/
-        else async purge => {
-            await message.channel.messages.fetch({ limit: args }) //Specify the limit (amount) of messages to fetch.
+        else{
+            await msg.channel.messages.fetch({ limit: args }) //Specify the limit (amount) of messages to fetch.
                 .then(messages => { // Fetches the messages from the current channel
-                    message.channel.bulkDelete(messages) //deletes messages
+                    msg.channel.bulkDelete(messages) //deletes messages
             });
         }
     }

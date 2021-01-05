@@ -11,7 +11,7 @@ module.exports = {
     execute(msg, args) {
         const target = msg.mentions.users.first()  // The target that we are trying to ban
         var banReason; // Reason of the ban
-        const bot = "794674548875460649"//bot uID
+        //const bot = "794674548875460649"//bot uID
 
 
     if(msg.member.roles.cache.has(config.adminRole)){
