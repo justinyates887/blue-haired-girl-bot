@@ -6,36 +6,43 @@ module.exports = {
     name: 'deletechannel',
     description: 'deletes the channel specified by the user',
 
-    execute(msg, args){
-        const fetchedChannel = msg.guild.channels.cache.get(args);
+    async execute(msg, args){
         
         if (!msg.member.hasPermission('ADMINISTRATOR')) {
             return msg.channel.send('missing permissions')
-        }
-        
-        if(!fetchedChannel){
-            if (config.embeds === true) { //Checks if the embed option is true then creates and sends this embed 
-                let embed = new Discord.MessageEmbed() //sets send card message
-                    .setAuthor("Uh-oh....") // Header of card
-                    .setColor("#486dAA") //Side bar color
-                    .setDescription("Please specify the channel you wish to delete") //main text body
-                    .setFooter(config.footer) //footer/watermark
-                return msg.channel.send(embed);
-            }
         } else{
-            fetchedChannel.delete();
+            //ask if they're sure
+            let filter = m => m.author.id === msg.author.id;
 
             if (config.embeds === true) { //Checks if the embed option is true then creates and sends this embed 
                 let embed = new Discord.MessageEmbed() //sets send card message
-                    .setAuthor("Woosh") // Header of card
+                    .setAuthor("Bye-bye") // Header of card
                     .setColor("#486dAA") //Side bar color
-                    .setDescription(`The channel ${fetchedChannel} has ceased to exist.`) //main text body
+                    .setDescription("Are you sure you want to do this?\n\n**THIS CAN'T BE UNDONE**\n**(YES/NO)**") //main text body
                     .setFooter(config.footer) //footer/watermark
-                return msg.channel.send(embed);
+                    msg.channel.send(embed);
             }
-        }
 
+            msg.channel.awaitMessages(filter, {
+                max: 1,
+                time: 20000,
+                errors: ['time']
+            })
+            .then(msg => {
+                msg = msg.first();
+                if(msg.content.toUpperCase() === 'YES') {    
+                    msg.channel.delete();
+                } else if (msg.content.toUpperCase() === 'NO'){
+                    if (config.embeds === true) { //Checks if the embed option is true then creates and sends this embed 
+                        let embed = new Discord.MessageEmbed() //sets send card message
+                            .setAuthor("Aborted") // Header of card
+                            .setColor("#486dAA") //Side bar color
+                            .setDescription("This cahnnel is safe... for now.") //main text body
+                            .setFooter(config.footer) //footer/watermark
+                        return msg.channel.send(embed);
+                    }
+                }
+            })  
+        }
     }
 }
-
-//needs async
