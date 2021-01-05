@@ -44,6 +44,7 @@ Justin Yates & Azrael
 - meme functionality
 - giveaways
 - leveling
+- bot updater (notifies channel log when bot will be down as well as new versions and features.)
 
 ---------------------------------------------------------------------------------------------------------------------------
 
@@ -61,7 +62,7 @@ Justin Yates & Azrael
 ---------------------------------------------------------------------------------------------------------------------------
 
 **Expected in version 4.0.0**
-- !easteregg comand that gives you a rondom easter egg fact
+- !easteregg comand that gives you a random easter egg fact
 - !random command that executes a random, non admin command.
 WHO KNOWS? :D
 
