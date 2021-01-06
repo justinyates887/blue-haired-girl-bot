@@ -1,8 +1,9 @@
-require('dotenv').config();                 //get token from env file
-const Discord = require('discord.js');      //initialize discord library adn API's
-const client = new Discord.Client();        //create instance of discord client
-const config = require("./config.json");    //initialize config.json
-const fs = require('fs');                   //initialize fs (goes with discord.collection)
+require('dotenv').config()                 //get token from env file
+const Discord = require('discord.js')      //initialize discord library adn API's
+const client = new Discord.Client()        //create instance of discord client
+const config = require("./config.json")   //initialize config.json
+const path = require('path')
+const fs = require('fs')                  //initialize fs (goes with discord.collection)
 client.commands = new Discord.Collection(); //for client.command.get
 const bot = '794674548875460649';           //bot Uid
 
@@ -46,6 +47,10 @@ client.on('message', (msg) => {
         client.commands.get('channelcreate').execute(msg, args);
     } else if (command === 'deletechannel'){
         client.commands.get('deletechannel').execute(msg, args);
+    } else if (command === 'mute'){
+        client.command.get('mute').execute(msg, args);
+    } else if (command === 'setup'){
+        client.command.get('setup').execute(msg, args);
     } else if (command === 'invitebot'){
         client.commands.get('invitebot').execute(msg);
     } else if (command === 'invitelink'){
@@ -57,8 +62,8 @@ client.on('message', (msg) => {
     } else if (command === 'giverole'){
         client.commands.get('giverole').execute(msg, args);
     }
-
 });
+
 client
     .on('guildCreate', console.log)
     .on('guildDelete', console.log)
