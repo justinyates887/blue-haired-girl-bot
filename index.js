@@ -74,6 +74,8 @@ client.on('message', (msg) => {
         client.commands.get('removerole').execute(msg, args); // done
     } else if(command === 'warn'){
         client.commands.get('warn').execute(msg, args);// done
+    } else if (command === 'addlogchannel'){
+        client.commands.get('addlogchannel').execute(msg);
     }
 });
 
