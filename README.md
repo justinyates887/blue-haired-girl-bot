@@ -94,4 +94,4 @@ Justin Yates & Azrael
 
 - Pretty much everything.
 
-![logo]BHG.png
+![logo]./BHG.png
