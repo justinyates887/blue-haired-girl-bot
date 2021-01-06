@@ -4,7 +4,7 @@
 
 *This development is still in Beta.*
 
-Current version 0.0.2
+Current version 0.3.1
 
 ---------------------------------------------------------------------------------------------------------------------------
 
@@ -15,40 +15,38 @@ Justin Yates & Azrael
 ---------------------------------------------------------------------------------------------------------------------------
 
 
-**Expected features in Version 1.0.0**
+**Expected features in Version 1.0.0** (The Admin Bot Launch)
 
 - [x] kick/ban commands
 - audit logs
-- purge/nuke
-- channel creation and deletion w/ log
+- [x] purge/nuke
+- [x] channel creation and deletion w/ log
 - role specific functionality
-- self contained configuration
 - mute capabilities w/log
 - warn capabilities w/log
-- blacklist words
 - give roles 
 - message delete/change log
-- block links(with role specific capabilities)
-- invite link for bot
-- invite link for your server
+- [x] invite link for bot
+- [x] te link for your server
+- [x] !developers (info on devs)
+- [x] !donate :)
+- change prefix to desired
 
 ---------------------------------------------------------------------------------------------------------------------------
 
-**Expected in Version 2.0.0**
+**Expected in Version 2.0.0** (The User Exp. Update)
 
 - quick announcements
-- automatic timed updates and reminders
 - meme functionality
 - giveaways
 - leveling
+- bot updater (notifies channel log when bot will be down as well as new versions and features.)
 
 ---------------------------------------------------------------------------------------------------------------------------
 
-**Expected in Version 3.0.0**
+**Expected in Version 3.0.0** (The BIG Update)
 
 - server stats
-- member rank
-- youtube/twitch notifications
 - welcome card with captcha
 - music functionality
 - reaction roles
@@ -57,9 +55,22 @@ Justin Yates & Azrael
 
 ---------------------------------------------------------------------------------------------------------------------------
 
-**Expected in version 4.0.0**
+**Expected in version 4.0.0** (The random update)
+- !easteregg comand that gives you a random easter egg fact
+- !random command that executes a random, non admin command.
 
-WHO KNOWS? :D
+---------------------------------------------------------------------------------------------------------------------------
+
+**Expected in version 5.0.0** (The customization/databse update)
+- Allow for changing of prefix
+- Allow for custom log channel
+- Leveling (user levels)/ member rank
+- Economy
+- youtube/twitch notifications
+- automatic timed updates and reminders
+- blacklist words
+- self contained configuration
+- block links(with role specific capabilities)
 
 ---------------------------------------------------------------------------------------------------------------------------
 

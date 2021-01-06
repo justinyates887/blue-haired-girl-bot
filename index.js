@@ -5,6 +5,7 @@ const config = require("./config.json")   //initialize config.json
 const path = require('path')
 const fs = require('fs')                  //initialize fs (goes with discord.collection)
 client.commands = new Discord.Collection(); //for client.command.get
+const bot = '794674548875460649';           //bot Uid
 
 //This will read the directory of discord's commands and filter it through our file.
 const commandFiles = fs.readdirSync('./commands/').filter(file => file.endsWith('.js'));
@@ -16,13 +17,14 @@ for(const file of commandFiles){
 }
 
 //log connection status and se tthe "Now playing" of the bot once activated and ready.
-client.once('ready', () => {
-    console.log(`Logged in as ${client.user.tag} (${client.user.id}) on ${client.guilds.size} servers`);
-    //client.user.setGame(`${config.prefix}help | ${client.guilds.size} servers!`);
+client.once('ready', async () => {
+    const servers = client.guilds.cache.size;
+    console.log(`Logged in as ${client.user.tag} (${client.user.id}) on ${servers} servers`);
+    client.user.setActivity(`${config.prefix}help | ${servers} servers!`);
 });
 
 //checks meesages to listen for command
-client.on('message', async (msg) => {
+client.on('message', (msg) => {
     //if there is no message end the method
     if (msg.author.bot || !msg.content.startsWith(config.prefix)) return;
 
@@ -32,7 +34,7 @@ client.on('message', async (msg) => {
    
     //iterates through possible commands to see if any match, if so runs the filepath
     if (command === 'help'){
-        client.commands.get('help').execute(msg, args);
+        client.commands.get('help').execute(msg);
     } else if (command === 'ban'){
         client.commands.get('ban').execute(msg, args);
     } else if (command === 'kick'){
@@ -40,7 +42,7 @@ client.on('message', async (msg) => {
     } else if (command === 'purge'){
         client.commands.get('purge').execute(msg, args);
     } else if (command === 'nuke'){
-        client.commands.get('nuke').execute(msg);
+        client.commands.get('nuke').execute(msg, bot);
     } else if(command === 'channelcreate'){
         client.commands.get('channelcreate').execute(msg, args);
     } else if (command === 'deletechannel'){
@@ -49,6 +51,16 @@ client.on('message', async (msg) => {
         client.command.get('mute').execute(msg, args);
     } else if (command === 'setup'){
         client.command.get('setup').execute(msg, args);
+    } else if (command === 'invitebot'){
+        client.commands.get('invitebot').execute(msg);
+    } else if (command === 'invitelink'){
+        client.commands.get('invitelink').execute(msg);
+    } else if (command === 'developers'){
+        client.commands.get('developers').execute(msg);
+    } else if (command === 'donate'){
+        client.commands.get('donate').execute(msg);
+    } else if (command === 'giverole'){
+        client.commands.get('giverole').execute(msg, args);
     }
 });
 
