@@ -54,6 +54,8 @@ client.on('message', (msg) => {
         client.commands.get('developers').execute(msg);
     } else if (command === 'donate'){
         client.commands.get('donate').execute(msg);
+    } else if (command === 'giverole'){
+        client.commands.get('giverole').execute(msg, args);
     }
 
 });
