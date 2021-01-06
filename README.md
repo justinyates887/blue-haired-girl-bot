@@ -21,7 +21,7 @@ Justin Yates & Azrael
 - audit logs
 - [x] purge/nuke
 - [x] channel creation and deletion w/ log
-- mute capabilities w/log
+- [x] mute capabilities w/log
 - [x] warn capabilities w/log
 - [x] give roles 
 - [x] remove roles
