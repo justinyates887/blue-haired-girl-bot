@@ -21,16 +21,14 @@ Justin Yates & Azrael
 - audit logs
 - [x] purge/nuke
 - [x] channel creation and deletion w/ log
-- role specific functionality
 - mute capabilities w/log
-- warn capabilities w/log
-- give roles 
-- message delete/change log
+- [x] warn capabilities w/log
+- [x] give roles 
+- [x] remove roles
 - [x] invite link for bot
 - [x] te link for your server
 - [x] !developers (info on devs)
 - [x] !donate :)
-- change prefix to desired
 
 ---------------------------------------------------------------------------------------------------------------------------
 
@@ -71,6 +69,8 @@ Justin Yates & Azrael
 - blacklist words
 - self contained configuration
 - block links(with role specific capabilities)
+- message delete/change log
+- role specific functionality
 
 ---------------------------------------------------------------------------------------------------------------------------
 

@@ -3,8 +3,8 @@ const fs = require("fs");
 const Discord = require("discord.js");
 
 module.exports = {
-    name: 'giverole',
-    description: 'gives role to specified user',
+    name: 'removerole',
+    description: 'takes role from specified user',
 
     async execute(msg, args){
         if (!msg.member.hasPermission('ADMINISTRATOR')) {
@@ -54,16 +54,15 @@ module.exports = {
         }
 
         const member = guild.members.cache.get(rMember.id);
-        member.roles.add(role);
+        member.roles.remove(role);
 
         if (config.embeds === true) { //Checks if the embed option is true then creates and sends this embed 
             let embed = new Discord.MessageEmbed() //sets send card message
-                .setAuthor("Huzzah!") // Header of card
+                .setAuthor("Yikes") // Header of card
                 .setColor("#486dAA") //Side bar color
-                .setDescription(`${member} now has the role ${role}.`) //main text body
+                .setDescription(`${member} now has lost the role ${role}.`) //main text body
                 .setFooter(config.footer) //footer/watermark
             return msg.channel.send(embed);
         }
     }
 }
-//unfinished

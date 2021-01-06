@@ -61,6 +61,10 @@ client.on('message', (msg) => {
         client.commands.get('donate').execute(msg);
     } else if (command === 'giverole'){
         client.commands.get('giverole').execute(msg, args);
+    } else if(command === 'removerole'){
+        client.commands.get('removerole').execute(msg, args);
+    } else if(command === 'warn'){
+        client.commands.get('warn').execute(msg, args);
     }
 });
 
