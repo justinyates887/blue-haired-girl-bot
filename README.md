@@ -32,7 +32,7 @@ Justin Yates & Azrael
 - [x] give roles 
 - [x] remove roles
 - [x] invite link for bot
-- [x] te link for your server
+- [x] invite link for your server
 - [x] !developers (info on devs)
 - [x] !donate :)
 
