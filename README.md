@@ -26,7 +26,6 @@ Justin Yates & Azrael
 - warn capabilities w/log
 - [x] give roles 
 - [x] remove roles
-- message delete/change log
 - [x] invite link for bot
 - [x] te link for your server
 - [x] !developers (info on devs)
@@ -71,6 +70,7 @@ Justin Yates & Azrael
 - blacklist words
 - self contained configuration
 - block links(with role specific capabilities)
+- message delete/change log
 
 ---------------------------------------------------------------------------------------------------------------------------
 
