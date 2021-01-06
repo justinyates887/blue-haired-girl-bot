@@ -1,5 +1,7 @@
 ## Welcome to the official "The Blue Haired Girl" Discord bot project!
 
+https://img.shields.io/github/languages/top/justinyates887/blue-haired-girl-bot?color=yellow
+
 ### The purpose of this bot is to provide an all-encompasing administrative bot for discord servers to reduce bot clutter.
 
 *This development is still in Beta.*
