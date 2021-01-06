@@ -4,7 +4,9 @@ module.exports = {
 
     execute(msg, args){
         const target = msg.mentions.users.first(); // The user that we are trying to kick
-        //if(!msg.target.permissions.has('ADMINISTRATOR')) return msg.reply('you aren\'t an Admin!'); // Allows only members with the admin role to kick players 
+        if (!msg.member.hasPermission('ADMINISTRATOR')) {
+            return msg.channel.send('missing permissions')
+        }
 
         if(target){
             const memberTarget = msg.guild.members.cache.get(target.id);
