@@ -21,7 +21,7 @@ Current version 0.3
 ---------------------------------------------------------------------------------------------------------------------------
 
 ### Invite the bot to your server!
-[The blue Haired Girl](https://discord.com/api/oauth2/authorize?client_id=794674548875460649&permissions=8&scope=bot)
+[The Blue Haired Girl](https://discord.com/api/oauth2/authorize?client_id=794674548875460649&permissions=8&scope=bot)
 
 ---------------------------------------------------------------------------------------------------------------------------
 
