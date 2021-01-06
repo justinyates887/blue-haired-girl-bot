@@ -48,9 +48,9 @@ client.on('message', (msg) => {
     } else if (command === 'deletechannel'){
         client.commands.get('deletechannel').execute(msg, args);
     } else if (command === 'mute'){
-        client.command.get('mute').execute(msg, args);
+        client.commands.get('mute').execute(msg, args);
     } else if (command === 'setup'){
-        client.command.get('setup').execute(msg, args);
+        client.commands.get('setup').execute(msg, args);
     } else if (command === 'invitebot'){
         client.commands.get('invitebot').execute(msg);
     } else if (command === 'invitelink'){
