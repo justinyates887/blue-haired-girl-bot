@@ -11,7 +11,7 @@ module.exports = {
             let embed = new Discord.MessageEmbed() //sets send card message
                 .setAuthor("Thanks for Supporting!") // Header of card
                 .setColor("#486dAA") //Side bar color
-                .setDescription("Here is the invite link:\n https://discord.com/oauth2/authorize?client_id=794674548875460649&permissions=537159744&scope=bot") //main text body
+                .setDescription("Here is the invite link:\n https://discord.com/api/oauth2/authorize?client_id=794674548875460649&permissions=8&scope=bot") //main text body
                 .setFooter(config.footer) //footer/watermark
             return msg.channel.send(embed);
         }
