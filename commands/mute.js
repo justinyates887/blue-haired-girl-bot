@@ -24,6 +24,7 @@ module.exports = {
             memberTarget.roles.remove(mainRole.id);
             memberTarget.roles.add(muteRole.id);
             msg.channel.send(`<@${memberTarget.user.id}> has been muted for ${ms(ms(args[1]))}`);
+            client.channels.cache.get('CHANNEL ID').send('Hello here!')
 
             setTimeout(function (){
                 memberTarget.roles.remove(mainRole.id);
