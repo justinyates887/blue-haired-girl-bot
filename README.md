@@ -24,7 +24,8 @@ Justin Yates & Azrael
 - role specific functionality
 - mute capabilities w/log
 - warn capabilities w/log
-- give roles 
+- [x] give roles 
+- [x] remove roles
 - message delete/change log
 - [x] invite link for bot
 - [x] te link for your server
