@@ -20,7 +20,7 @@ Justin Yates & Azrael
 **Expected features in Version 1.0.0** (The Admin Bot Launch)
 
 - [x] kick/ban commands
-- audit logs
+- [x] audit logs
 - [x] purge/nuke
 - [x] channel creation and deletion w/ log
 - [x] mute capabilities w/log
