@@ -21,7 +21,6 @@ Justin Yates & Azrael
 - audit logs
 - [x] purge/nuke
 - [x] channel creation and deletion w/ log
-- role specific functionality
 - mute capabilities w/log
 - warn capabilities w/log
 - [x] give roles 
@@ -71,6 +70,7 @@ Justin Yates & Azrael
 - self contained configuration
 - block links(with role specific capabilities)
 - message delete/change log
+- role specific functionality
 
 ---------------------------------------------------------------------------------------------------------------------------
 
