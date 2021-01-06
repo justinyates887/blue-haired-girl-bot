@@ -9,9 +9,9 @@ module.exports = {
     async execute(msg, args){
         const amount = args.join(' '); //We want the argument (number) to be the amount, so we do a join on the arg.
 
-        //test
-        console.log(amount)
-        //
+        if (!msg.member.hasPermission('ADMINISTRATOR')) {
+            return msg.channel.send('missing permissions')
+        }
 
         if(!amount){
             if (config.embeds === true) { //Checks if the embed option is true then creates and sends this embed 
@@ -48,5 +48,5 @@ module.exports = {
             });
         }
     }
-    }
-}
+  }
+
