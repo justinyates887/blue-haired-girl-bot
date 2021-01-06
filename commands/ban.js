@@ -1,26 +1,25 @@
 const config = require("../config.json"); //initialize config.json
 const fs = require("fs");
 const Discord = require("discord.js");
-
+const bot = new Discord.Client();
 
 
 module.exports = {
     name: 'ban',
     description: "This ban\'s player!",
 
-    async execute(msg, args) {
+    async execute(msg, args, logs, blueLogs) {
         const target = msg.mentions.users.first()  // The target that we are trying to ban
         var banReason; // Reason of the ban
         const bot = "794674548875460649"//bot uID
-
-
+    
     if(msg.member.roles.cache.has(config.adminRole)){
      // Allows only members with the admin role to kick players
             banReason = args.slice(1).join(" "); // Reason of the ban (Everything behind the mention)
         if (!target) { // Does this if the target did not tag a member
             if (config.embeds === true) { //Checks if the embed option is true then creates and sends this embed 
                 let embed = new Discord.MessageEmbed() //sets send card message
-                    .setAuthor("Nice try!") // Header of card
+                    .setAuthor("Error!") // Header of card
                     .setColor("#486dAA") //Side bar color
                     .setDescription("No target found please @ the target your trying to ban") //main text body
                     .setFooter(embeds) //footer/watermark
@@ -84,7 +83,6 @@ module.exports = {
         const memberTarget = msg.guild.members.cache.get(target.id);
         memberTarget.ban({
         });
-        banned === true;
     }else{
         msg.channel.send(`Could not ban member`);
     }
@@ -92,7 +90,6 @@ module.exports = {
         if (config.override === true) {
             embeds1 = config.footer;
         }
-
         console.log(args);
         // Then it will send this embed to say
         // that the user has been banned
@@ -115,35 +112,19 @@ module.exports = {
                 .replace(/{reason}/g, banReason));
         }
 
-
-        // Checks the config if the user wants logging enabled
-        // if so it does this:
-        var embeds2;
-        if (config.override === true){
-            embeds2 = config.footer;
-        } 
-        if (config.embeds === true) {
+        // Logs
+        if (logs === true) {
             let banEmbed = new Discord.MessageEmbed()
                 .setAuthor("Action | User banned")
                 .setColor("#486dAA")
-                .addField("Staff Member", `${msg.author.id}>`)
-                .addField("User Banned", `${target.id}>`)
-                .addField("Reason", `${banReason}`)
-                .setFooter(`${embeds2}`);
-            try{
-            return msg.guild.channels.find(ch => ch.name.includes('logs')).send(banEmbed); //needs to change this to a var so user can set own log channel
-            }
-            catch(error){
-                if(error){
-                    let banEmbed = new Discord.MessageEmbed()
-                        .setAuthor("ERROR")
-                        .setColor("#486dAA")
-                        .setDescription("An unknown error has ben discovered")
-                        .setFooter(`${embeds2}`);
-                }
-            }
-            console.log(`${logs}`)
-        }
+                .setDescription(config.userBanned
+                    .replace(/{user}/g, target)
+                    .replace(/{userID}/g, target.id)
+                    .replace(/{staffMember}/g, msg.author)
+                    .replace(/{reason}/g, banReason))
+                .setFooter(config.footer);
+            blueLogs.send(banEmbed);
+        } 
     } else {
         msg.channel.send('You do not have the permissions to ban a member')
     }

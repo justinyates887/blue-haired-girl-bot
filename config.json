@@ -6,7 +6,8 @@
     "embeds": true,
     "override": true,
     "footer": "Blue Haired Girl By SmallBlue Dev",
-    "userBanned": "{user} Has been banned by {staffMember} for '{reason}'",
+    "userBanned": "{user} Has been Banned by {staffMember} for '{reason}'",
+    "userKicked": "{user} Has been Kicked by {staffMember} for '{reason}'",
     "permissionRole": "Developers",
     "adminRole": "795324636685664296"
   }
