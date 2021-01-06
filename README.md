@@ -30,7 +30,6 @@ Justin Yates & Azrael
 - [x] te link for your server
 - [x] !developers (info on devs)
 - [x] !donate :)
-- change prefix to desired
 
 ---------------------------------------------------------------------------------------------------------------------------
 
