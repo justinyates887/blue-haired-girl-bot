@@ -35,37 +35,37 @@ client.on('message', (msg) => {
    
     //iterates through possible commands to see if any match, if so runs the filepath
     if (command === 'help'){
-        client.commands.get('help').execute(msg);
+        client.commands.get('help').execute(msg); // done
     } else if (command === 'ban'){
-        client.commands.get('ban').execute(msg, args);
+        client.commands.get('ban').execute(msg, args); // done
     } else if (command === 'kick'){
-        client.commands.get('kick').execute(msg, args);
+        client.commands.get('kick').execute(msg, args); // done
     } else if (command === 'purge'){
-        client.commands.get('purge').execute(msg, args);
+        client.commands.get('purge').execute(msg, args); // done 
     } else if (command === 'nuke'){
-        client.commands.get('nuke').execute(msg, bot);
+        client.commands.get('nuke').execute(msg, bot);// done
     } else if(command === 'channelcreate'){
-        client.commands.get('channelcreate').execute(msg, args);
+        client.commands.get('channelcreate').execute(msg, args);//done
     } else if (command === 'deletechannel'){
-        client.commands.get('deletechannel').execute(msg, args);
+        client.commands.get('deletechannel').execute(msg, args); // done
     } else if (command === 'mute'){
-        client.command.get('mute').execute(msg, args);
+        client.commands.get('mute').execute(msg, args); // done
     } else if (command === 'setup'){
-        client.command.get('setup').execute(msg, args);
+        client.commands.get('setup').execute(msg, args); // not worrying about just yet... currently commented out 
     } else if (command === 'invitebot'){
-        client.commands.get('invitebot').execute(msg);
+        client.commands.get('invitebot').execute(msg); // done
     } else if (command === 'invitelink'){
-        client.commands.get('invitelink').execute(msg);
+        client.commands.get('invitelink').execute(msg); // done
     } else if (command === 'developers'){
-        client.commands.get('developers').execute(msg);
+        client.commands.get('developers').execute(msg); // done
     } else if (command === 'donate'){
-        client.commands.get('donate').execute(msg);
+        client.commands.get('donate').execute(msg); // done
     } else if (command === 'giverole'){
-        client.commands.get('giverole').execute(msg, args);
+        client.commands.get('giverole').execute(msg, args); // done
     } else if(command === 'removerole'){
-        client.commands.get('removerole').execute(msg, args);
+        client.commands.get('removerole').execute(msg, args); // done
     } else if(command === 'warn'){
-        client.commands.get('warn').execute(msg, args);
+        client.commands.get('warn').execute(msg, args);// done
     }
 });
 
