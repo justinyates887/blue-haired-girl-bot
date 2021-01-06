@@ -16,8 +16,6 @@ Current version 0.3
 
 ### Join the official [discord!](https://discord.gg/tb4mZWtXC8)
 
-![discord](https://img.shields.io/discord/795324515034726410)
-
 ---------------------------------------------------------------------------------------------------------------------------
 
 ### Invite the bot to your server!
