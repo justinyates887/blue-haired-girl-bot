@@ -6,7 +6,8 @@ const path = require('path')
 const fs = require('fs')                  //initialize fs (goes with discord.collection)
 client.commands = new Discord.Collection(); //for client.command.get
 const bot = '794674548875460649';           //bot Uid
-let logs;
+let logs ;
+
 
 //This will read the directory of discord's commands and filter it through our file.
 const commandFiles = fs.readdirSync('./commands/').filter(file => file.endsWith('.js'));
@@ -26,9 +27,16 @@ client.once('ready', async () => {
 
 //checks meesages to listen for command
 client.on('message', (msg) => {
+    let blueLogs = msg.guild.channels.cache.find(c => c.name === ('blue-logs'));
+    if (blueLogs){
+        logs = true;
+    }
+    if (!blueLogs) {
+        logs = false;
+    }
     //if there is no message end the method
     if (msg.author.bot || !msg.content.startsWith(config.prefix)) return;
-
+    
     //seperated the message into parts
     const args = msg.content.slice(config.prefix.length).split(/ +/);
     const command = args.shift().toLowerCase();
@@ -37,9 +45,9 @@ client.on('message', (msg) => {
     if (command === 'help'){
         client.commands.get('help').execute(msg); // done
     } else if (command === 'ban'){
-        client.commands.get('ban').execute(msg, args); // done
+        client.commands.get('ban').execute(msg, args, logs, blueLogs); // done
     } else if (command === 'kick'){
-        client.commands.get('kick').execute(msg, args); // done
+        client.commands.get('kick').execute(msg, args, logs, blueLogs); // done
     } else if (command === 'purge'){
         client.commands.get('purge').execute(msg, args); // done 
     } else if (command === 'nuke'){
