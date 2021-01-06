@@ -44,10 +44,18 @@ module.exports = {
         
         /***************this function below does not work no async***********/
         else{
+            if (config.embeds === true) { //Checks if the embed option is true then creates and sends this embed 
+                let embed = new Discord.MessageEmbed() //sets send card message
+                    .setAuthor("Please Wait") // Header of card
+                    .setColor("#486dAA") //Side bar color
+                    .setDescription("Channel purging please wait!") //main text body
+                    .setFooter(config.footer) //footer/watermark
+                msg.channel.send(embed);
             await msg.channel.messages.fetch({ limit: args }) //Specify the limit (amount) of messages to fetch.
                 .then(messages => { // Fetches the messages from the current channel
                     msg.channel.bulkDelete(messages) //deletes messages
             });
         }
+    }
     }
 }

@@ -45,8 +45,11 @@ client.on('message', async (msg) => {
         client.commands.get('channelcreate').execute(msg, args);
     } else if (command === 'deletechannel'){
         client.commands.get('deletechannel').execute(msg, args);
+    } else if (command === 'mute'){
+        client.command.get('mute').execute(msg, args);
+    } else if (command === 'setup'){
+        client.command.get('setup').execute(msg, args);
     }
-
 });
 
 client
