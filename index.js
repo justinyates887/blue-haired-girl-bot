@@ -6,7 +6,7 @@ const path = require('path')
 const fs = require('fs')                  //initialize fs (goes with discord.collection)
 client.commands = new Discord.Collection(); //for client.command.get
 const bot = '794674548875460649';           //bot Uid
-let logs ;
+let logs;
 
 
 //This will read the directory of discord's commands and filter it through our file.
@@ -49,13 +49,13 @@ client.on('message', (msg) => {
     } else if (command === 'kick'){
         client.commands.get('kick').execute(msg, args, logs, blueLogs); // done
     } else if (command === 'purge'){
-        client.commands.get('purge').execute(msg, args); // done 
+        client.commands.get('purge').execute(msg, args, logs, blueLogs); // done 
     } else if (command === 'nuke'){
-        client.commands.get('nuke').execute(msg, bot);// done
+        client.commands.get('nuke').execute(msg, bot, logs, blueLogs);// done
     } else if(command === 'channelcreate'){
-        client.commands.get('channelcreate').execute(msg, args);//done
+        client.commands.get('channelcreate').execute(msg, args, logs, blueLogs);//done
     } else if (command === 'deletechannel'){
-        client.commands.get('deletechannel').execute(msg, args); // done
+        client.commands.get('deletechannel').execute(msg, args, logs, blueLogs); // done
     } else if (command === 'mute'){
         client.commands.get('mute').execute(msg, args); // done
     } else if (command === 'setup'){
@@ -69,11 +69,11 @@ client.on('message', (msg) => {
     } else if (command === 'donate'){
         client.commands.get('donate').execute(msg); // done
     } else if (command === 'giverole'){
-        client.commands.get('giverole').execute(msg, args); // done
+        client.commands.get('giverole').execute(msg, args, logs, blueLogs); // done
     } else if(command === 'removerole'){
-        client.commands.get('removerole').execute(msg, args); // done
+        client.commands.get('removerole').execute(msg, args, logs, blueLogs); // done
     } else if(command === 'warn'){
-        client.commands.get('warn').execute(msg, args);// done
+        client.commands.get('warn').execute(msg, args, logs, blueLogs);// done
     } else if (command === 'addlogchannel'){
         client.commands.get('addlogchannel').execute(msg);
     }

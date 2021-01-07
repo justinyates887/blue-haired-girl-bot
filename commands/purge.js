@@ -6,7 +6,7 @@ module.exports = {
     name: 'purge',
     description: 'purges a select number of chats',
 
-    async execute(msg, args){
+    async execute(msg, args, logs, blueLogs){
         const amount = args.join(' '); //We want the argument (number) to be the amount, so we do a join on the arg.
 
         if (!msg.member.hasPermission('ADMINISTRATOR')) {
@@ -47,6 +47,15 @@ module.exports = {
                     msg.channel.bulkDelete(messages) //deletes messages
             });
         }
+
+        if (logs === true) {
+            let embed = new Discord.MessageEmbed() //sets send card message
+                .setAuthor("Action | Purge") // Header of card
+                .setColor("#486dAA") //Side bar color
+                .setDescription(`${amount} message's puurged from ${msg.channel}`) //main text body
+                .setFooter(config.footer) //footer/watermark
+            blueLogs.send(embed);
+        } 
     }
   }
 
