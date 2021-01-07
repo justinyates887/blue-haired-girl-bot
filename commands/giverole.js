@@ -6,7 +6,7 @@ module.exports = {
     name: 'giverole',
     description: 'gives role to specified user',
 
-    async execute(msg, args){
+    async execute(msg, args, logs, blueLogs){
         if (!msg.member.hasPermission('ADMINISTRATOR')) {
             return msg.channel.send('missing permissions')
         }
@@ -36,7 +36,7 @@ module.exports = {
                 return msg.channel.send(embed);
             }
         }
-        console.log(roleName);
+
         const { guild } = msg;
         const role = guild.roles.cache.find((role) => {
             return role.name === roleName;
@@ -62,8 +62,19 @@ module.exports = {
                 .setColor("#486dAA") //Side bar color
                 .setDescription(`${member} now has the role ${role}.`) //main text body
                 .setFooter(config.footer) //footer/watermark
-            return msg.channel.send(embed);
+             msg.channel.send(embed);
+        } else {
+           return msg.channel.send('The bot cannot give this role')
         }
+
+        if (logs === true) {
+            let embed = new Discord.MessageEmbed() //sets send card message
+                .setAuthor("Action | Role Given") // Header of card
+                .setColor("#486dAA") //Side bar color
+                .setDescription(`${member} was given role ${role}`) //main text body
+                .setFooter(config.footer) //footer/watermark
+            return blueLogs.send(embed);
+        } 
     }
 }
 //unfinished
