@@ -6,7 +6,7 @@ module.exports = {
     name: 'deletechannel',
     description: 'deletes the channel specified by the user',
 
-    async execute(msg, args){
+    async execute(msg, args, logs, blueLogs){
         
         if (!msg.member.hasPermission('ADMINISTRATOR')) {
             return msg.channel.send('missing permissions')
@@ -39,10 +39,19 @@ module.exports = {
                             .setColor("#486dAA") //Side bar color
                             .setDescription("This cahnnel is safe... for now.") //main text body
                             .setFooter(config.footer) //footer/watermark
-                        return msg.channel.send(embed);
+                         return msg.channel.send(embed);
                     }
                 }
             })  
         }
+
+        if (logs === true) {
+            let embed = new Discord.MessageEmbed() //sets send card message
+                .setAuthor("Action | Channel Deleted") // Header of card
+                .setColor("#486dAA") //Side bar color
+                .setDescription("A channel was deleted.") //main text body
+                .setFooter(config.footer) //footer/watermark
+            return blueLogs.send(embed);
+        } 
     }
 }

@@ -6,7 +6,7 @@ module.exports = {
     name: 'channelcreate',
     description: 'creates a channel, can target category',
 
-    execute(msg, args){
+    execute(msg, args, logs, blueLogs){
     let channelType;
     let channelName;
 
@@ -90,7 +90,7 @@ module.exports = {
                         .setColor("#486dAA") //Side bar color
                         .setDescription(`Your channel **${channelName}** has been created`) //main text body
                         .setFooter(config.footer) //footer/watermark
-                    return msg.channel.send(embed);
+                    msg.channel.send(embed);
                 }
         } else {
             if (config.embeds === true) { //Checks if the embed option is true then creates and sends this embed 
@@ -99,8 +99,17 @@ module.exports = {
                     .setColor("#486dAA") //Side bar color
                     .setDescription('We dont\'t know what went wrong...\n try checking your syntax: <!channel create> + <type> + <name>') //main text body
                     .setFooter(config.footer) //footer/watermark
-                return msg.channel.send(embed);
+                 return msg.channel.send(embed);
             }
         }
+
+        if (logs === true) {
+            let embed = new Discord.MessageEmbed() //sets send card message
+                .setAuthor("Action | Channel Created") // Header of card
+                .setColor("#486dAA") //Side bar color
+                .setDescription(`${channelName} was created`) //main text body
+                .setFooter(config.footer) //footer/watermark
+            return blueLogs.send(embed);
+        } 
     }
 }

@@ -6,7 +6,7 @@ module.exports = {
     name: 'warn',
     description: 'sends a warning to user',
 
-    execute(msg, args){
+    execute(msg, args, logs, blueLogs){
         if (!msg.member.hasPermission('ADMINISTRATOR')) {
             return msg.channel.send('missing permissions')
         }
@@ -52,8 +52,17 @@ module.exports = {
                     .setColor("#486dAA")
                     .setDescription(`${target} you have been warned: ${warnReason}`)
                     .setFooter(config.footer)
-                return msg.channel.send(embed);
+                msg.channel.send(embed);
             }
         }
+
+        if (logs === true) {
+            let embed = new Discord.MessageEmbed() //sets send card message
+                .setAuthor("Action | Role Removed") // Header of card
+                .setColor("#486dAA") //Side bar color
+                .setDescription(`${target} now has been warned for ${warnReason}.`) //main text body
+                .setFooter(config.footer) //footer/watermark
+            blueLogs.send(embed);
+        }    
     }
 }

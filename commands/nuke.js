@@ -6,7 +6,7 @@ module.exports = {
     name: 'nuke',
     description: 'this will delete a channel and create an identical one',
 
-    async execute(msg, bot){
+    async execute(msg, bot, logs, blueLogs){
         if (!msg.member.hasPermission('ADMINISTRATOR')) {
             msg.channel.send('missing permissions')
         } else {
@@ -56,6 +56,16 @@ module.exports = {
                 }
             }) 
         }
+
+        if (logs === true) {
+            let embed = new Discord.MessageEmbed() //sets send card message
+                .setAuthor("Action | Channel Nuked") // Header of card
+                .setColor("#486dAA") //Side bar color
+                .setDescription(`A channel was nuked`) //main text body
+                .setFooter(config.footer) //footer/watermark
+            return blueLogs.send(embed);
+        } 
+
     }
 }
 //needs to be able to nuke channels with perms
