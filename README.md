@@ -6,13 +6,13 @@
 ![commits](https://img.shields.io/github/commit-activity/w/justinyates887/blue-haired-girl-bot)
 ![maintained](https://img.shields.io/maintenance/yes/2021)
 
-### The purpose of this bot is to provide an all-encompasing administrative bot for discord servers to reduce bot clutter.
+**The purpose of this bot is to provide an all-encompasing administrative bot for discord servers to reduce bot clutter.**
 
-Current version 1.0.0
+*Current version 1.0.0*
 
 ---------------------------------------------------------------------------------------------------------------------------
 
-## This Repo is the beta
+### This Repo is the beta
 
 For the stable repo go to:
 
