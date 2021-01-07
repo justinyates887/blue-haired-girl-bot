@@ -12,7 +12,7 @@ Current version 1.0.0
 
 ---------------------------------------------------------------------------------------------------------------------------
 
-##This Repo is the beta
+## This Repo is the beta
 
 For the stable repo go to:
 
