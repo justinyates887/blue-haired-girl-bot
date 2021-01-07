@@ -49,19 +49,19 @@ client.on('message', (msg) => {
     } else if (command === 'kick'){
         client.commands.get('kick').execute(msg, args, logs, blueLogs); // done
     } else if (command === 'purge'){
-        client.commands.get('purge').execute(msg, args); // done 
+        client.commands.get('purge').execute(msg, args, logs, blueLogs); // done 
     } else if (command === 'nuke'){
-        client.commands.get('nuke').execute(msg, bot);// done
+        client.commands.get('nuke').execute(msg, bot, logs, blueLogs);// done
     } else if(command === 'channelcreate'){
-        client.commands.get('channelcreate').execute(msg, args);//done
+        client.commands.get('channelcreate').execute(msg, args, logs, blueLogs);//done
     } else if (command === 'deletechannel'){
-        client.commands.get('deletechannel').execute(msg, args); // done
+        client.commands.get('deletechannel').execute(msg, args, logs, blueLogs); // done
     } else if (command === 'mute'){
-        client.commands.get('mute').execute(msg, args); // done
+        client.commands.get('mute').execute(msg, args, logs, blueLogs); // done
     } else if (command === 'setup'){
-        client.commands.get('setup').execute(msg, args); // not worrying about just yet... currently commented out 
+        client.commands.get('setup').execute(msg, args, logs, blueLogs); // not worrying about just yet... currently commented out 
     } else if (command === 'invitebot'){
-        client.commands.get('invitebot').execute(msg); // done
+        client.commands.get('invitebot').execute(msg, logs, blueLogs); // done
     } else if (command === 'invitelink'){
         client.commands.get('invitelink').execute(msg); // done
     } else if (command === 'developers'){
