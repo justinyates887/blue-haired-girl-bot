@@ -51,7 +51,6 @@ Justin Yates & Azrael
 - quick announcements
 - meme functionality
 - giveaways
-- leveling
 - bot updater (notifies channel log when bot will be down as well as new versions and features.)
 
 ---------------------------------------------------------------------------------------------------------------------------
@@ -85,6 +84,7 @@ Justin Yates & Azrael
 - block links(with role specific capabilities)
 - message delete/change log
 - role specific functionality
+- leveling
 
 ---------------------------------------------------------------------------------------------------------------------------
 
