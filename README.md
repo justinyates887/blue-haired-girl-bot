@@ -42,19 +42,19 @@ Justin Yates & Azrael
 
 ## Table of Contents:
 
-[License](#license)
+> - [License](#license)
 
-[v1.0.0](#v1)
+> - [v1.0.0](#v1)
 
-[v2.0.0](#v2)
+> - [v2.0.0](#v2)
 
-[v3.0.0](#v3)
+> - [v3.0.0](#v3)
 
-[v4.0.0](#v4)
+> - [v4.0.0](#v4)
 
-[v5.0.0](#v5)
+> - [v5.0.0](#v5)
 
-[Current Issues](#current-issues)
+> - [Current Issues](#current-issues)
 
 ---------------------------------------------------------------------------------------------------------------------------
 
