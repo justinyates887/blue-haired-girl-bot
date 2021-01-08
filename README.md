@@ -97,6 +97,7 @@ along with this program.  If not, see <https://www.gnu.org/licenses/>.
 - quick announcements
 - meme functionality
 - giveaways
+- create role function
 - bot updater (notifies channel log when bot will be down as well as new versions and features.)
 
 ---------------------------------------------------------------------------------------------------------------------------
