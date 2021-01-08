@@ -43,7 +43,7 @@ Justin Yates & Azrael
 
 > - [License](#license)
 
-> - [v1.0.0](#v1)
+> - [v1.0.0 (current)](#v1)
 
 > - [v2.0.0](#v2)
 
