@@ -36,6 +36,7 @@ Justin Yates & Azrael
 
 #### Sponsor this project <3
 [Buy Us a Cup of Coffee](https://www.buymeacoffee.com/smallbluedev)
+![coffee](https://img.shields.io/badge/%E2%98%95-%244.00%20Raised-yellow)
 
 ---------------------------------------------------------------------------------------------------------------------------
 
