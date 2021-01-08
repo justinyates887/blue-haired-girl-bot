@@ -3,7 +3,6 @@
 ![Language](https://img.shields.io/github/languages/top/justinyates887/blue-haired-girl-bot?color=yellow)
 ![total line](https://img.shields.io/tokei/lines/github/justinyates887/blue-haired-girl-bot)
 ![license](https://img.shields.io/badge/License-GNU-blueviolet)
-![commits](https://img.shields.io/github/commit-activity/w/justinyates887/blue-haired-girl-bot)
 ![maintained](https://img.shields.io/maintenance/yes/2021)
 
 **The purpose of this bot is to provide an all-encompasing administrative bot for discord servers to reduce bot clutter.**
