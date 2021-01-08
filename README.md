@@ -42,27 +42,27 @@ Justin Yates & Azrael
 
 ## Table of Contents:
 
-[License](#License)
+[License](#license)
 
-[v1.0.0](#Current features in Version 1.0.0 (The Admin Bot Launch))
+[v1.0.0](#v1)
 
-[v2.0.0](#Expected in Version 2.0.0 (The User Exp. Update))
+[v2.0.0](#v2)
 
-[v3.0.0](#Expected in Version 3.0.0 (The BIG Update))
+[v3.0.0](#v3)
 
-[v4.0.0](#Expected in version 4.0.0 (The random update))
+[v4.0.0](#v4)
 
-[v5.0.0](#Expected in version 5.0.0 (The customization/databse update))
+[v5.0.0](#v5)
 
-[Current Issues](#Current Issues)
-
----------------------------------------------------------------------------------------------------------------------------
-
-## License
+[Current Issues](#current-issues)
 
 ---------------------------------------------------------------------------------------------------------------------------
 
-## Current features in Version 1.0.0 (The Admin Bot Launch)
+## <a name="license"></a>License
+
+---------------------------------------------------------------------------------------------------------------------------
+
+## <a name="v1"></a>Current features in Version 1.0.0 (The Admin Bot Launch)
 
 - [x] kick/ban commands
 - [x] audit logs
@@ -79,7 +79,7 @@ Justin Yates & Azrael
 
 ---------------------------------------------------------------------------------------------------------------------------
 
-## Expected in Version 2.0.0 (The User Exp. Update)
+## <a name="v2"></a>Expected in Version 2.0.0 (The User Exp. Update)
 
 - quick announcements
 - meme functionality
@@ -88,7 +88,7 @@ Justin Yates & Azrael
 
 ---------------------------------------------------------------------------------------------------------------------------
 
-## Expected in Version 3.0.0 (The BIG Update)
+## <a name="v3"></a>Expected in Version 3.0.0 (The BIG Update)
 
 - server stats
 - welcome card with captcha
@@ -99,13 +99,13 @@ Justin Yates & Azrael
 
 ---------------------------------------------------------------------------------------------------------------------------
 
-## Expected in version 4.0.0 (The random update)
+## <a name="v4"></a>Expected in version 4.0.0 (The random update)
 - !easteregg comand that gives you a random easter egg fact
 - !random command that executes a random, non admin command.
 
 ---------------------------------------------------------------------------------------------------------------------------
 
-## Expected in version 5.0.0 (The customization/databse update)
+## <a name="v5"></a>Expected in version 5.0.0 (The customization/databse update)
 - Allow for changing of prefix
 - Allow for custom log channel
 - Leveling (user levels)/ member rank
@@ -121,7 +121,7 @@ Justin Yates & Azrael
 
 ---------------------------------------------------------------------------------------------------------------------------
 
-### Current Issues
+### <a name="current-issues"></a>Current Issues
 
 - not a bug in our program, but a user bug:
 
