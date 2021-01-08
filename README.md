@@ -39,7 +39,29 @@ Justin Yates & Azrael
 
 ---------------------------------------------------------------------------------------------------------------------------
 
-**Current features in Version 1.0.0** (The Admin Bot Launch)
+## Table of Contents:
+
+[License](#License)
+
+[v1.0.0](#Current features in Version 1.0.0 (The Admin Bot Launch))
+
+[v2.0.0](#Expected in Version 2.0.0 (The User Exp. Update))
+
+[v3.0.0](#Expected in Version 3.0.0 (The BIG Update))
+
+[v4.0.0](#Expected in version 4.0.0 (The random update))
+
+[v5.0.0](#Expected in version 5.0.0 (The customization/databse update))
+
+[Current Issues](#Current Issues)
+
+---------------------------------------------------------------------------------------------------------------------------
+
+## License
+
+---------------------------------------------------------------------------------------------------------------------------
+
+## Current features in Version 1.0.0 (The Admin Bot Launch)
 
 - [x] kick/ban commands
 - [x] audit logs
@@ -56,7 +78,7 @@ Justin Yates & Azrael
 
 ---------------------------------------------------------------------------------------------------------------------------
 
-**Expected in Version 2.0.0** (The User Exp. Update)
+## Expected in Version 2.0.0 (The User Exp. Update)
 
 - quick announcements
 - meme functionality
@@ -65,7 +87,7 @@ Justin Yates & Azrael
 
 ---------------------------------------------------------------------------------------------------------------------------
 
-**Expected in Version 3.0.0** (The BIG Update)
+## Expected in Version 3.0.0 (The BIG Update)
 
 - server stats
 - welcome card with captcha
@@ -76,13 +98,13 @@ Justin Yates & Azrael
 
 ---------------------------------------------------------------------------------------------------------------------------
 
-**Expected in version 4.0.0** (The random update)
+## Expected in version 4.0.0 (The random update)
 - !easteregg comand that gives you a random easter egg fact
 - !random command that executes a random, non admin command.
 
 ---------------------------------------------------------------------------------------------------------------------------
 
-**Expected in version 5.0.0** (The customization/databse update)
+## Expected in version 5.0.0 (The customization/databse update)
 - Allow for changing of prefix
 - Allow for custom log channel
 - Leveling (user levels)/ member rank
@@ -98,7 +120,7 @@ Justin Yates & Azrael
 
 ---------------------------------------------------------------------------------------------------------------------------
 
-**Current Issues**
+### Current Issues
 
 - not a bug in our program, but a user bug:
 
