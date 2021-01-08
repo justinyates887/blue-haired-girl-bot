@@ -34,8 +34,12 @@ Justin Yates & Azrael
 
 ---------------------------------------------------------------------------------------------------------------------------
 
+#### Sponsor this project <3
+[Buy Us a Cup of Coffee](https://www.buymeacoffee.com/smallbluedev)
 
-**Expected features in Version 1.0.0** (The Admin Bot Launch)
+---------------------------------------------------------------------------------------------------------------------------
+
+**Current features in Version 1.0.0** (The Admin Bot Launch)
 
 - [x] kick/ban commands
 - [x] audit logs
@@ -96,7 +100,13 @@ Justin Yates & Azrael
 
 **Current Issues**
 
-- 
+- not a bug in our program, but a user bug:
+
+> prefix is widely used, and until it can be altered by users should be changed to something more specific like b! or bh!(edited)
+January 8, 2021
+
+- certain logs do not indicate targets (such as the nuke command)
+
 
 ---------------------------------------------------------------------------------------------------------------------------
 
