@@ -8,6 +8,7 @@
 **The purpose of this bot is to provide an all-encompasing administrative bot for discord servers to reduce bot clutter.**
 
 > *Current version 1.0.1*
+> *Current beta 2.0.1*
 
 ---------------------------------------------------------------------------------------------------------------------------
 
@@ -94,10 +95,11 @@ along with this program.  If not, see <https://www.gnu.org/licenses/>.
 
 ## <a name="v2"></a>Expected in Version 2.0.0 (The User Exp. Update)
 
-- quick announcements
+- [x] quick announcements
 - meme functionality
-- giveaways
-- create role function
+- [x] giveaways
+- [x] create role function
+- [x] delete role function
 - bot updater (notifies channel log when bot will be down as well as new versions and features.)
 
 ---------------------------------------------------------------------------------------------------------------------------
