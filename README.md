@@ -8,6 +8,7 @@
 **The purpose of this bot is to provide an all-encompasing administrative bot for discord servers to reduce bot clutter.**
 
 > *Current version 1.0.1*
+
 > *Current beta 2.0.1*
 
 ---------------------------------------------------------------------------------------------------------------------------
