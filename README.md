@@ -97,11 +97,11 @@ along with this program.  If not, see <https://www.gnu.org/licenses/>.
 ## <a name="v2"></a>Expected in Version 2.0.0 (The User Exp. Update)
 
 - [x] quick announcements
-- meme functionality
+- [x] meme functionality
 - [x] giveaways
 - [x] create role function
 - [x] delete role function
-- bot updater (notifies channel log when bot will be down as well as new versions and features.)
+- [x] bot updater (notifies channel log when bot will be down as well as new versions and features.)
 
 ---------------------------------------------------------------------------------------------------------------------------
 
