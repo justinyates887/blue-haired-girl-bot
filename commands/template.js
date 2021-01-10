@@ -1,7 +1,7 @@
 //***********************************************This connects your packages*************************************
 
 /* 
-const config = require("../config.json"); //initialize config.json
+const config = require("../config.json");
 const fs = require("fs");
 const Discord = require("discord.js");
 */
@@ -52,4 +52,9 @@ if (config.embeds === true) {
     if (!msg.member.hasPermission('ADMINISTRATOR')) {
         return msg.channel.send('missing permissions')
     }
+*/
+
+//***************************************************random image api******************************************************** 
+/*
+const api = require("imageapi.js"); 
 */
