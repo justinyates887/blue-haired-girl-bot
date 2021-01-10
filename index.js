@@ -62,9 +62,10 @@ client.once('ready', async () => {
             }
         })
     }
+    */
 });
 
-*/
+
     // **********************************************************************************************************************************************************************
 
 //checks meesages to listen for command
@@ -129,20 +130,18 @@ client.on('message', (msg) => {
     } else if (command === 'makiozesmuscles'){
         client.commands.get('makiozesmuscles').execute(msg); //done
     } else if (command === 'startgiveaway'){
-        client.commands.get('startgiveaway').execute(msg, args); //done
+        client.commands.get('startgiveaway').execute(msg, args, logs, blueLogs); //done
     } else if(command === 'endgiveaway'){
-        client.commands.get('endgiveaway').execute(msg); //done
+        client.commands.get('endgiveaway').execute(msg, logs, blueLogs); //done
     } else if (command === 'meme'){
         client.commands.get('meme').execute(msg); //done
-    } else if (command === 'awe'){
-        client.commands.get('awe').execute(msg); //done
+    } else if (command === 'aww'){
+        client.commands.get('aww').execute(msg); //done
     } else if (command === 'wholesome'){
         client.commands.get('wholesome').execute(msg); //done
     } else if (command === 'hentai'){
         client.commands.get('hentai').execute(msg); //done
-    } else if (command === 'showerthought'){
-        client.commands.get('showerthought').execute(msg); //done
-    } else if (command === 'reddit'){
+    }  else if (command === 'reddit'){
         client.commands.get('reddit').execute(msg, args); //done
     }
 });
@@ -179,7 +178,7 @@ client.on("guildCreate", guild => {
             }
           }
         }
-      });
+      })
   })
 
 //sends message to log channel if logs are on

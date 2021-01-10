@@ -1,5 +1,4 @@
 const config = require("../config.json"); //initialize config.json
-const commando = require('discord.js-commando')
 const fs = require("fs");
 const Discord = require("discord.js");
 
@@ -7,7 +6,7 @@ module.exports = {
     name: 'endgiveaway',
     description: 'ends a giveaway',
 
-    async execute(msg){
+    async execute(msg, logs, blueLogs){
         if (!msg.member.hasPermission('ADMINISTRATOR')) {
             return msg.channel.send('missing permissions')
         }
@@ -18,7 +17,7 @@ module.exports = {
             channel.messages.fetch({ limit: 1 }).then(async (messages) => {
                 msg = messages.first();
 
-                if(!message) {
+                if(!msg) {
                     if (config.embeds === true) {
                         let embed = new Discord.MessageEmbed()
                             .setAuthor("Oops")
