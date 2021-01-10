@@ -25,8 +25,8 @@ module.exports = {
 
         let roleNew = await msg.guild.roles.create({
             data:{
-                name = roleName,
-                color = roleColor,
+                name: roleName,
+                color: roleColor,
             }
         })
 
@@ -47,7 +47,5 @@ module.exports = {
                 .setFooter(config.footer)
             blueLogs.send(embed);
         } 
-
-
     }
 }

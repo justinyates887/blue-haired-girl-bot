@@ -62,9 +62,10 @@ client.once('ready', async () => {
             }
         })
     }
+    */
 });
 
-*/
+
     // **********************************************************************************************************************************************************************
 
 //checks meesages to listen for command
@@ -95,7 +96,7 @@ client.on('message', (msg) => {
     } else if (command === 'purge'){
         client.commands.get('purge').execute(msg, args, logs, blueLogs); // done 
     } else if (command === 'nuke'){
-        client.commands.get('nuke').execute(msg, bot, logs, blueLogs);// done
+        client.commands.get('nuke').execute(msg, bot, logs, blueLogs); // done
     } else if(command === 'channelcreate'){
         client.commands.get('channelcreate').execute(msg, args, logs, blueLogs);//done
     } else if (command === 'deletechannel'){
@@ -129,21 +130,19 @@ client.on('message', (msg) => {
     } else if (command === 'makiozesmuscles'){
         client.commands.get('makiozesmuscles').execute(msg); //done
     } else if (command === 'startgiveaway'){
-        client.commands.get('startgiveaway').execute(msg, args); //done
+        client.commands.get('startgiveaway').execute(msg, args, logs, blueLogs); //done
     } else if(command === 'endgiveaway'){
-        client.commands.get('endgiveaway').execute(msg);
+        client.commands.get('endgiveaway').execute(msg, logs, blueLogs); //done
     } else if (command === 'meme'){
-        client.commands.get('meme').execute(msg);
-    } else if (command === 'awe'){
-        client.commands.get('awe').execute(msg);
+        client.commands.get('meme').execute(msg); //done
+    } else if (command === 'aww'){
+        client.commands.get('aww').execute(msg); //done
     } else if (command === 'wholesome'){
-        client.commands.get('wholesome').execute(msg);
+        client.commands.get('wholesome').execute(msg); //done
     } else if (command === 'hentai'){
-        client.commands.get('hentai').execute(msg);
-    } else if (command === 'showerthought'){
-        client.commands.get('showerthought').execute(msg);
-    } else if (command === 'reddit'){
-        client.commands.get('reddit').execute(msg, args);
+        client.commands.get('hentai').execute(msg); //done
+    }  else if (command === 'reddit'){
+        client.commands.get('reddit').execute(msg, args); //done
     }
 });
 
@@ -179,8 +178,7 @@ client.on("guildCreate", guild => {
             }
           }
         }
-      });
-   
+      })
   })
 
 //sends message to log channel if logs are on
