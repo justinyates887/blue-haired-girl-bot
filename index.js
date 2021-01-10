@@ -29,42 +29,9 @@ client.once('ready', async () => {
 
     //sets game activity
     client.user.setActivity(`${config.prefix}help | ${servers} servers!`);
-
-    //*****************************************This is where version update goes when new version/features/bug fixes are added**********************************************
-
-    /*
-    if (logs === true) {
-        let embed = new Discord.MessageEmbed()
-            .setAuthor("An Update is here!") 
-            .setColor("#486dAA")
-            .setDescription(`Here's what changed:\n`)
-            .setFooter(config.footer)
-        blueLogs.send(embed);
-    } else {
-        let found = 0;
-        guild.channels.cache.map((channel) => {
-            if (found === 0) {
-                if (channel.type === "text") {
-                    if (channel.permissionsFor(client.user).has("VIEW_CHANNEL") === true) {
-                        if (channel.permissionsFor(client.user).has("SEND_MESSAGES") === true) {
-                             if (config.embeds === true) { 
-                                let embed = new Discord.MessageEmbed()
-                                    .setAuthor("An Update is here!")
-                                    .setColor("#486dAA") 
-                                    .setDescription(`Here's what changed:\n`) 
-                                    .setFooter(config.footer)
-                                    channel.send(embed);
-                            }
-                                found = 1;
-                        }
-                    }
-                }
-            }
-        })
-    }
-    */
 });
 
+    //*****************************************This is where version update goes when new version/features/bug fixes are added**********************************************
 
     // **********************************************************************************************************************************************************************
 
@@ -89,6 +56,10 @@ client.on('message', (msg) => {
     //iterates through possible commands to see if any match, if so runs the filepath
     if (command === 'help'){
         client.commands.get('help').execute(msg); // done
+    } else if(command === 'adminhelp'){
+        client.commands.get('adminhelp').execute(msg);
+    } else if(command === 'userhelp'){
+        client.commands.get('userhelp').execute(msg);
     } else if (command === 'ban'){
         client.commands.get('ban').execute(msg, args, logs, blueLogs); // done
     } else if (command === 'kick'){
@@ -124,9 +95,9 @@ client.on('message', (msg) => {
     } else if (command === 'announce'){
         client.commands.get('announce').execute(msg, args); //done
     } else if (command === 'createrole'){
-        client.commands.get('createrole').execute(msg, args); //done
+        client.commands.get('createrole').execute(msg, args, logs, blueLogs); //done
     } else if (command === 'deleterole'){
-        client.commands.get('deleterole').execute(msg, args); //done
+        client.commands.get('deleterole').execute(msg, args, logs, blueLogs); //done
     } else if (command === 'makiozesmuscles'){
         client.commands.get('makiozesmuscles').execute(msg); //done
     } else if (command === 'startgiveaway'){
