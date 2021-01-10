@@ -6,7 +6,7 @@ module.exports = {
     name: 'createrole',
     description: 'creates a role in the server',
 
-    async execute(msg, args){
+    async execute(msg, args, logs, blueLogs){
         let roleColor = args.shift();
         let roleName = args.join(' ');
 
@@ -15,7 +15,7 @@ module.exports = {
                 let embed = new Discord.MessageEmbed()
                     .setAuthor("Uh oh...")
                     .setColor("#486dAA") //Side bar color
-                    .setDescription("You didn't specify a name for the role")
+                    .setDescription("Did you specify a name and a hex color?\n If you dont want a color just type a random key after the command.")
                     .setFooter(config.footer)
                 return msg.channel.send(embed);
             }

@@ -6,9 +6,9 @@ module.exports = {
     name: 'deleterole',
     description: 'deletes a role from the server',
 
-    execute(msg, args){
+    execute(msg, args, logs, blueLogs){
         let roleName = args.join(' ');
-        let roleNameFind = msg.guild.roles.chace.find(r => r.name == roleName);
+        let roleNameFind = msg.guild.roles.cache.find(r => r.name == roleName);
 
         if (!msg.member.hasPermission('ADMINISTRATOR')) {
             return msg.channel.send('missing permissions');

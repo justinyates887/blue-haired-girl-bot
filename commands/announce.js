@@ -15,7 +15,7 @@ module.exports = {
         const message = args.join(' ');
         let targetChannelFind = msg.guild.channels.cache.find(c => c.name === (targetChannel));
 
-        if(!targetChannel || targetChannelFind){
+        if(!targetChannel || !targetChannelFind){
             if (config.embeds === true) { //Checks if the embed option is true then creates and sends this embed 
                 let embed = new Discord.MessageEmbed() //sets send card message
                     .setAuthor("Yikes...") // Header of card
@@ -36,11 +36,10 @@ module.exports = {
         } else {
             if (config.embeds === true) { //Checks if the embed option is true then creates and sends this embed 
                 let embed = new Discord.MessageEmbed() //sets send card message
-                    .setAuthor("Nice try!") // Header of card
+                    .setAuthor("Hey!") // Header of card
                     .setColor("#486dAA") //Side bar color
                     .setDescription(`@everyone ${message}`) //main text body
-                    .setFooter(config.footer) //footer/watermark
-                return msg.targetChannelFind.send(embed);
+                return targetChannelFind.send(embed);
             }
         }
     }
