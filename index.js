@@ -32,10 +32,40 @@ client.once('ready', async () => {
 
     //*****************************************This is where version update goes when new version/features/bug fixes are added**********************************************
 
-
-
-    // **********************************************************************************************************************************************************************
+    /*
+    if (logs === true) {
+        let embed = new Discord.MessageEmbed()
+            .setAuthor("An Update is here!") 
+            .setColor("#486dAA")
+            .setDescription(`Here's what changed:\n`)
+            .setFooter(config.footer)
+        blueLogs.send(embed);
+    } else {
+        let found = 0;
+        guild.channels.cache.map((channel) => {
+            if (found === 0) {
+                if (channel.type === "text") {
+                    if (channel.permissionsFor(client.user).has("VIEW_CHANNEL") === true) {
+                        if (channel.permissionsFor(client.user).has("SEND_MESSAGES") === true) {
+                             if (config.embeds === true) { 
+                                let embed = new Discord.MessageEmbed()
+                                    .setAuthor("An Update is here!")
+                                    .setColor("#486dAA") 
+                                    .setDescription(`Here's what changed:\n`) 
+                                    .setFooter(config.footer)
+                                    channel.send(embed);
+                            }
+                                found = 1;
+                        }
+                    }
+                }
+            }
+        })
+    }
 });
+
+*/
+    // **********************************************************************************************************************************************************************
 
 //checks meesages to listen for command
 client.on('message', (msg) => {
@@ -112,6 +142,8 @@ client.on('message', (msg) => {
         client.commands.get('hentai').execute(msg);
     } else if (command === 'showerthought'){
         client.commands.get('showerthought').execute(msg);
+    } else if (command === 'reddit'){
+        client.commands.get('reddit').execute(msg, args);
     }
 });
 
