@@ -102,6 +102,16 @@ client.on('message', (msg) => {
         client.commands.get('startgiveaway').execute(msg, args); //done
     } else if(command === 'endgiveaway'){
         client.commands.get('endgiveaway').execute(msg);
+    } else if (command === 'meme'){
+        client.commands.get('meme').execute(msg);
+    } else if (command === 'awe'){
+        client.commands.get('awe').execute(msg);
+    } else if (command === 'wholesome'){
+        client.commands.get('wholesome').execute(msg);
+    } else if (command === 'hentai'){
+        client.commands.get('hentai').execute(msg);
+    } else if (command === 'showerthought'){
+        client.commands.get('showerthought').execute(msg);
     }
 });
 
