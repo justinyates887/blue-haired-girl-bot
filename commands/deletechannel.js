@@ -8,10 +8,17 @@ module.exports = {
 
     async execute(msg, args, logs, blueLogs){
 
-        args=args.join('')
-        let targetChannel = msg.guild.channels.cache.find(c => c.name === (args));
+        
+        let targetChannel = msg.mentions.channels.first();
+        let targetChannelID = targetChannel.id;
 
-        if(!targetChannel){
+        const { guild } = msg;
+
+        const target = guild.channels.cache.find((target) => {
+            return target.id === targetChannelID;
+        });
+
+        if(!target){
             if (config.embeds === true) { //Checks if the embed option is true then creates and sends this embed 
                 let embed = new Discord.MessageEmbed() //sets send card message
                     .setAuthor("Hmmm...") // Header of card
@@ -45,7 +52,7 @@ module.exports = {
             .then(msg => {
                 msg = msg.first();
                 if(msg.content.toUpperCase() === 'YES') {    
-                    targetChannel.delete();
+                    target.delete();
                 } else if (msg.content.toUpperCase() === 'NO'){
                     if (config.embeds === true) { //Checks if the embed option is true then creates and sends this embed 
                         let embed = new Discord.MessageEmbed() //sets send card message
@@ -63,7 +70,7 @@ module.exports = {
             let embed = new Discord.MessageEmbed() //sets send card message
                 .setAuthor("Action | Channel Deleted") // Header of card
                 .setColor("#486dAA") //Side bar color
-                .setDescription(`${targetChannel} was deleted by ${msg.author}.`) //main text body
+                .setDescription(`${target} was deleted by ${msg.author}.`) //main text body
                 .setFooter(config.footer) //footer/watermark
             return blueLogs.send(embed);
         } 
