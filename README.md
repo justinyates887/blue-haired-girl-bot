@@ -149,6 +149,12 @@ January 8, 2021
 
 - certain logs do not indicate targets (such as the nuke command)
 
+- need to be able to target a channel in the delete channel command instead of having to run the command in the channel
+
+- need to fix announce command to include channels that people specify with # as well as other commands that function off of @roles and #channels
+
+- most logs do not specify what user invoked the command
+
 
 ---------------------------------------------------------------------------------------------------------------------------
 
