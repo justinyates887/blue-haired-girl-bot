@@ -68,7 +68,7 @@ module.exports = {
             let embed = new Discord.MessageEmbed() //sets send card message
                 .setAuthor("Action | Role Removed") // Header of card
                 .setColor("#486dAA") //Side bar color
-                .setDescription(`${member} now has lost the role ${role}.`) //main text body
+                .setDescription(`${member} now has lost the role ${role} by ${msg.author}.`) //main text body
                 .setFooter(config.footer) //footer/watermark
             blueLogs.send(embed);
         } 

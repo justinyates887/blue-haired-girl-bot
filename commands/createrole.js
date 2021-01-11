@@ -43,7 +43,7 @@ module.exports = {
             let embed = new Discord.MessageEmbed()
                 .setAuthor("Action | Role Created") // Header of card
                 .setColor("#486dAA")
-                .setDescription(`${roleName} was created and added to channel roles.`)
+                .setDescription(`${roleName} was created and added to channel roles by ${msg.author}.`)
                 .setFooter(config.footer)
             blueLogs.send(embed);
         } 

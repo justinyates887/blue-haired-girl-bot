@@ -56,7 +56,7 @@ module.exports = {
                         let embed = new Discord.MessageEmbed()
                             .setAuthor("Action | Giveaway Started") 
                             .setColor("#486dAA")
-                            .setDescription("A giveaway was started")
+                            .setDescription(`A giveaway was started by ${msg.author} in channel ${msg.channel}`)
                             .setFooter(config.footer)
                         blueLogs.send(embed);
                     } 

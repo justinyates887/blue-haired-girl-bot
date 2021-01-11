@@ -60,7 +60,7 @@ module.exports = {
             let embed = new Discord.MessageEmbed() //sets send card message
                 .setAuthor("Action | Role Removed") // Header of card
                 .setColor("#486dAA") //Side bar color
-                .setDescription(`${target} now has been warned for ${warnReason}.`) //main text body
+                .setDescription(`${target} now has been warned for ${warnReason} by ${msg.author}.`) //main text body
                 .setFooter(config.footer) //footer/watermark
             blueLogs.send(embed);
         }    
