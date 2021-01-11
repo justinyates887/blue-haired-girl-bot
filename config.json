@@ -1,5 +1,5 @@
 {
-    "prefix": "!",
+    "prefix": "test!",
     "noUserTagged": "You didn't tag a member!",
     "log": true,
     "logs": "logs",
