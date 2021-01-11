@@ -11,11 +11,18 @@ module.exports = {
             return msg.channel.send('missing permissions')
         }
 
-        const targetChannel = args.shift();
-        const message = args.join(' ');
-        let targetChannelFind = msg.guild.channels.cache.find(c => c.name === (targetChannel));
+        let targetChannel = msg.mentions.channels.first();
+        let targetChannelID = targetChannel.id;
+        let burn = args.shift();
+        let message = args.join(' ')
 
-        if(!targetChannel || !targetChannelFind){
+        const { guild } = msg;
+
+        const target = guild.channels.cache.find((target) => {
+            return target.id === targetChannelID;
+        });
+
+        if(!target){
             if (config.embeds === true) { //Checks if the embed option is true then creates and sends this embed 
                 let embed = new Discord.MessageEmbed() //sets send card message
                     .setAuthor("Yikes...") // Header of card
@@ -39,7 +46,7 @@ module.exports = {
                     .setAuthor("Hey!") // Header of card
                     .setColor("#486dAA") //Side bar color
                     .setDescription(`@everyone ${message}`) //main text body
-                return targetChannelFind.send(embed);
+                return target.send(embed);
             }
         }
     }

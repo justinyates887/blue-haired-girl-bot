@@ -12,7 +12,7 @@ module.exports = {
         }
 
         let rMember = msg.mentions.users.first();
-        let burn = args.shift();
+        let rMemberID = rMember.id;
 
         if (!rMember){
             if (config.embeds === true) { //Checks if the embed option is true then creates and sends this embed 
@@ -25,7 +25,9 @@ module.exports = {
             }
         }
 
-        let roleName = args.join(' ');
+        let roleName = msg.mentions.roles.first();
+        let roleNameID = roleName.id;
+
         if (!roleName){
             if (config.embeds === true) { //Checks if the embed option is true then creates and sends this embed 
                 let embed = new Discord.MessageEmbed() //sets send card message
@@ -38,22 +40,15 @@ module.exports = {
         }
 
         const { guild } = msg;
+
         const role = guild.roles.cache.find((role) => {
-            return role.name === roleName;
-        })
+             return role.id === roleNameID;
+         })
 
-        if (!role){
-            if (config.embeds === true) { //Checks if the embed option is true then creates and sends this embed 
-                let embed = new Discord.MessageEmbed() //sets send card message
-                    .setAuthor("Hmmmm...") // Header of card
-                    .setColor("#486dAA") //Side bar color
-                    .setDescription("I didn't find that role...\n (Hint: Dont @ the role)") //main text body
-                    .setFooter(config.footer) //footer/watermark
-                return msg.channel.send(embed);
-            }
-        }
+        const member = guild.members.cache.find((member) => {
+            return member.id === rMemberID;
+        });
 
-        const member = guild.members.cache.get(rMember.id);
         member.roles.add(role);
 
         if (config.embeds === true) { //Checks if the embed option is true then creates and sends this embed 

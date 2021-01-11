@@ -7,14 +7,22 @@ module.exports = {
     description: 'deletes a role from the server',
 
     execute(msg, args, logs, blueLogs){
-        let roleName = args.join(' ');
-        let roleNameFind = msg.guild.roles.cache.find(r => r.name == roleName);
+
+        let roleName = msg.mentions.roles.first();
+        let roleNameID = roleName.id;
+
+        const { guild } = msg;
+
+        const role = guild.roles.cache.find((role) => {
+             return role.id === roleNameID;
+         });
+
 
         if (!msg.member.hasPermission('ADMINISTRATOR')) {
             return msg.channel.send('missing permissions');
         }
 
-        if(!roleName){
+        if(!role){
             if (config.embeds === true) {
                 let embed = new Discord.MessageEmbed()
                     .setAuthor("That's not good...")
@@ -23,24 +31,15 @@ module.exports = {
                     .setFooter(config.footer)
                 return msg.channel.send(embed);
             }
-        } else if(!roleNameFind){
-            if (config.embeds === true) {
-                let embed = new Discord.MessageEmbed()
-                    .setAuthor("That's not good...")
-                    .setColor("#486dAA")
-                    .setDescription("I couldn't find a role under that name")
-                    .setFooter(config.footer)
-                return msg.channel.send(embed);
-            }
         }
 
-        roleNameFind.delete()
+        role.delete()
 
         if (config.embeds === true) {
             let embed = new Discord.MessageEmbed()
                 .setAuthor("Yeet")
                 .setColor("#486dAA")
-                .setDescription(`The role ${roleNameFind} was deleted`)
+                .setDescription(`The role ${role} was deleted`)
                 .setFooter(config.footer)
             msg.channel.send(embed);
         }
@@ -49,7 +48,7 @@ module.exports = {
             let embed = new Discord.MessageEmbed()
                 .setAuthor("Action | Role Deleted") 
                 .setColor("#486dAA")
-                .setDescription(`The role ${roleNameFind} was deleted by ${msg.author}.`)
+                .setDescription(`The role ${role} was deleted by ${msg.author}.`)
                 .setFooter(config.footer)
             blueLogs.send(embed);
         } 
