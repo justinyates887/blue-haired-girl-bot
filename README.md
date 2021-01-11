@@ -45,9 +45,9 @@ Justin Yates & Azrael
 
 > - [License](#license)
 
-> - [v1.0.0 (stable)](#v1)
+> - [v1.0.0 (previous)](#v1)
 
-> - [v2.0.0 (in development)](#v2)
+> - [v2.0.0 (stable)](#v2)
 
 > - [v3.0.0](#v3)
 
