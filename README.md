@@ -114,6 +114,7 @@ along with this program.  If not, see <https://www.gnu.org/licenses/>.
 - support ticket
 - captcha verification
 - dice rolls
+- upvote / downvote reactions to specific messages
 
 ---------------------------------------------------------------------------------------------------------------------------
 
@@ -136,7 +137,6 @@ along with this program.  If not, see <https://www.gnu.org/licenses/>.
 - message delete/change log
 - role specific functionality
 - leveling
-- upvote / downvote reactions to specific channels
 
 ---------------------------------------------------------------------------------------------------------------------------
 
