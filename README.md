@@ -101,7 +101,7 @@ along with this program.  If not, see <https://www.gnu.org/licenses/>.
 - [x] giveaways
 - [x] create role function
 - [x] delete role function
-- [x] bot updater (notifies channel log when bot will be down as well as new versions and features.)
+- bot updater (notifies channel log when bot will be down as well as new versions and features.) *(suspended until further notice)*
 
 ---------------------------------------------------------------------------------------------------------------------------
 
