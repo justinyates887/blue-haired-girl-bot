@@ -33,7 +33,18 @@ module.exports = {
                     msg.channel.clone().then(channel2 => {
                         channel2.setPosition(msg.channel.position);
                     })
+
+                    if (logs === true) {
+                        let embed = new Discord.MessageEmbed() //sets send card message
+                            .setAuthor("Action | Channel Nuked") // Header of card
+                            .setColor("#486dAA") //Side bar color
+                            .setDescription(`A channel was nuked by ${msg.author}`) //main text body
+                            .setFooter(config.footer) //footer/watermark
+                        blueLogs.send(embed);
+                    } 
+
                     msg.channel.delete();
+
 
                 } else if (msg.content.toUpperCase() === 'NO'){
                     if (config.embeds === true) { //Checks if the embed option is true then creates and sends this embed 
@@ -56,16 +67,6 @@ module.exports = {
                 }
             }) 
         }
-
-        if (logs === true) {
-            let embed = new Discord.MessageEmbed() //sets send card message
-                .setAuthor("Action | Channel Nuked") // Header of card
-                .setColor("#486dAA") //Side bar color
-                .setDescription(`A channel was nuked`) //main text body
-                .setFooter(config.footer) //footer/watermark
-            return blueLogs.send(embed);
-        } 
-
     }
 }
 //needs to be able to nuke channels with perms

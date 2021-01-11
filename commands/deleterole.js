@@ -49,7 +49,7 @@ module.exports = {
             let embed = new Discord.MessageEmbed()
                 .setAuthor("Action | Role Deleted") 
                 .setColor("#486dAA")
-                .setDescription(`The role ${roleNameFind} was deleted.`)
+                .setDescription(`The role ${roleNameFind} was deleted by ${msg.author}.`)
                 .setFooter(config.footer)
             blueLogs.send(embed);
         } 

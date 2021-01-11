@@ -71,7 +71,7 @@ module.exports = {
             let embed = new Discord.MessageEmbed() //sets send card message
                 .setAuthor("Action | Role Given") // Header of card
                 .setColor("#486dAA") //Side bar color
-                .setDescription(`${member} was given role ${role}`) //main text body
+                .setDescription(`${member} was given role ${role} by ${msg.author}.`) //main text body
                 .setFooter(config.footer) //footer/watermark
             return blueLogs.send(embed);
         } 

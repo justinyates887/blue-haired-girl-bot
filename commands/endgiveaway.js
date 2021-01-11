@@ -48,7 +48,7 @@ module.exports = {
                     let embed = new Discord.MessageEmbed()
                         .setAuthor("Action | Giveaway Ended") 
                         .setColor("#486dAA")
-                        .setDescription(`${winner} won the giveaway.`)
+                        .setDescription(`${winner} won the giveaway!\n\nGiveaway ended by ${msg.author}.`)
                         .setFooter(config.footer)
                     blueLogs.send(embed);
                 } 
