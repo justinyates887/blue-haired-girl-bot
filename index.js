@@ -7,6 +7,7 @@ const fs = require('fs')                    //initialize fs (goes with discord.c
 client.commands = new Discord.Collection(); //for client.command.get
 const bot = '794674548875460649';           //bot Uid
 let logs;
+let serverStats;
 
 
 //This will read the directory of discord's commands and filter it through our file.
@@ -114,6 +115,8 @@ client.on('message', (msg) => {
         client.commands.get('hentai').execute(msg); //done
     }  else if (command === 'reddit'){
         client.commands.get('reddit').execute(msg, args); //done
+    } else if (command === 'createserverstats'){
+        client.commands.get('createserverstats').execute(msg, args);
     }
 });
 
@@ -153,10 +156,12 @@ client.on("guildCreate", guild => {
   })
 
 //sends message to log channel if logs are on
-if(logs === true){
-    client.on('guildMemberRemove',(member) => {
-        client.channels.cache.find('blue-log').send(`**${member.username}** has just left server...`);
-    })
-}
+
+client.on('guildMemberRemove',(member) => {
+    if(logs === true){
+        client.channels.cache.find('blue-logs').send(`**${member.username}** has just left server...`);
+    }
+})
+
 //adds token so bot will initalize from .env
 client.login(process.env.SECRET);
