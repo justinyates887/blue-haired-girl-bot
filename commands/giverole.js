@@ -55,7 +55,7 @@ module.exports = {
             let embed = new Discord.MessageEmbed() //sets send card message
                 .setAuthor("Huzzah!") // Header of card
                 .setColor("#486dAA") //Side bar color
-                .setDescription(`${member} now has the role ${role}.`) //main text body
+                .setDescription(`${member} now has the role ${role.name}.`) //main text body
                 .setFooter(config.footer) //footer/watermark
              msg.channel.send(embed);
         } else {
