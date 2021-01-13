@@ -137,17 +137,6 @@ client.on("guildCreate", guild => {
                          channel.send(embed);
                 }
                 found = 1;
-
-                if(channel.permissionsFor(client.user).has("ADMINISTRATOR") === true){
-                    guild.channels.create('blue-logs', {
-                        type: 'text',
-                        permissionOverwrites: [
-                            {
-                                id: guild.id,
-                                allow: ['VIEW_CHANNEL'],
-                            }]
-                        })
-                }
               }
             }
           }
