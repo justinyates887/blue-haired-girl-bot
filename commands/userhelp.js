@@ -11,7 +11,7 @@ module.exports = {
             let embed = new Discord.MessageEmbed() //sets send card message
                 .setAuthor("Fun Commands") // Header of card
                 .setColor("#486dAA") //Side bar color
-                .setDescription("- **!meme** sneds a meme from r/memes\n-**!aww** sends a meme from r/aww\n-**!wholesome** sends a meme from r/wholesome\n-**!hentai** well...you know uwu") //main text body
+                .setDescription("- **b!meme** sneds a meme from r/memes\n-**b!aww** sends a meme from r/aww\n-**b!wholesome** sends a meme from r/wholesome\n-**b!hentai** well...you know uwu") //main text body
                 .setFooter(config.footer) //footer/watermark
             msg.channel.send(embed);
         }
