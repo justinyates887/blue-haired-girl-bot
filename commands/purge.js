@@ -8,6 +8,7 @@ module.exports = {
 
     async execute(msg, args, logs, blueLogs){
         const amount = args.join(' '); //We want the argument (number) to be the amount, so we do a join on the arg.
+        const user = msg.author.id;
 
         if (!msg.member.hasPermission('ADMINISTRATOR')) {
             return msg.channel.send('missing permissions')
@@ -52,7 +53,7 @@ module.exports = {
             let embed = new Discord.MessageEmbed() //sets send card message
                 .setAuthor("Action | Purge") // Header of card
                 .setColor("#486dAA") //Side bar color
-                .setDescription(`${amount} message's puurged from ${msg.channel}`) //main text body
+                .setDescription(`${amount} message's purged from ${msg.channel} by ${user}`) //main text body
                 .setFooter(config.footer) //footer/watermark
             blueLogs.send(embed);
         } 

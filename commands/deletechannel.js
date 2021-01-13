@@ -7,6 +7,27 @@ module.exports = {
     description: 'deletes the channel specified by the user',
 
     async execute(msg, args, logs, blueLogs){
+
+        
+        let targetChannel = msg.mentions.channels.first();
+        let targetChannelID = targetChannel.id;
+
+        const { guild } = msg;
+
+        const target = guild.channels.cache.find((target) => {
+            return target.id === targetChannelID;
+        });
+
+        if(!target){
+            if (config.embeds === true) { //Checks if the embed option is true then creates and sends this embed 
+                let embed = new Discord.MessageEmbed() //sets send card message
+                    .setAuthor("Hmmm...") // Header of card
+                    .setColor("#486dAA") //Side bar color
+                    .setDescription("Please specify a channel") //main text body
+                    .setFooter(config.footer) //footer/watermark
+                 return msg.channel.send(embed);
+            }
+        }
         
         if (!msg.member.hasPermission('ADMINISTRATOR')) {
             return msg.channel.send('missing permissions')
@@ -31,7 +52,7 @@ module.exports = {
             .then(msg => {
                 msg = msg.first();
                 if(msg.content.toUpperCase() === 'YES') {    
-                    msg.channel.delete();
+                    target.delete();
                 } else if (msg.content.toUpperCase() === 'NO'){
                     if (config.embeds === true) { //Checks if the embed option is true then creates and sends this embed 
                         let embed = new Discord.MessageEmbed() //sets send card message
@@ -49,7 +70,7 @@ module.exports = {
             let embed = new Discord.MessageEmbed() //sets send card message
                 .setAuthor("Action | Channel Deleted") // Header of card
                 .setColor("#486dAA") //Side bar color
-                .setDescription("A channel was deleted.") //main text body
+                .setDescription(`${target} was deleted by ${msg.author}.`) //main text body
                 .setFooter(config.footer) //footer/watermark
             return blueLogs.send(embed);
         } 

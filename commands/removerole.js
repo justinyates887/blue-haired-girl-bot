@@ -12,7 +12,6 @@ module.exports = {
         }
 
         let rMember = msg.mentions.users.first();
-        let burn = args.shift();
 
         if (!rMember){
             if (config.embeds === true) { //Checks if the embed option is true then creates and sends this embed 
@@ -25,28 +24,21 @@ module.exports = {
             }
         }
 
-        let roleName = args.join(' ');
-        if (!roleName){
-            if (config.embeds === true) { //Checks if the embed option is true then creates and sends this embed 
-                let embed = new Discord.MessageEmbed() //sets send card message
-                    .setAuthor("Hmmmm...") // Header of card
-                    .setColor("#486dAA") //Side bar color
-                    .setDescription("Did you specify a role?") //main text body
-                    .setFooter(config.footer) //footer/watermark
-                return msg.channel.send(embed);
-            }
-        }
+        let roleName = msg.mentions.roles.first();
+        let roleNameID = roleName.id;
+
         const { guild } = msg;
+
         const role = guild.roles.cache.find((role) => {
-            return role.name === roleName;
-        })
+             return role.id === roleNameID;
+         });
 
         if (!role){
             if (config.embeds === true) { //Checks if the embed option is true then creates and sends this embed 
                 let embed = new Discord.MessageEmbed() //sets send card message
                     .setAuthor("Hmmmm...") // Header of card
                     .setColor("#486dAA") //Side bar color
-                    .setDescription("I didn't find that role...\n (Hint: Dont @ the role)") //main text body
+                    .setDescription("Did you specify a role?") //main text body
                     .setFooter(config.footer) //footer/watermark
                 return msg.channel.send(embed);
             }
@@ -68,7 +60,7 @@ module.exports = {
             let embed = new Discord.MessageEmbed() //sets send card message
                 .setAuthor("Action | Role Removed") // Header of card
                 .setColor("#486dAA") //Side bar color
-                .setDescription(`${member} now has lost the role ${role}.`) //main text body
+                .setDescription(`${member} has now lost the role ${role} by ${msg.author}.`) //main text body
                 .setFooter(config.footer) //footer/watermark
             blueLogs.send(embed);
         } 

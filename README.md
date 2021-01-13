@@ -3,14 +3,19 @@
 ![Language](https://img.shields.io/github/languages/top/justinyates887/blue-haired-girl-bot?color=yellow)
 ![total line](https://img.shields.io/tokei/lines/github/justinyates887/blue-haired-girl-bot)
 ![license](https://img.shields.io/badge/License-GNU-blueviolet)
-![commits](https://img.shields.io/github/commit-activity/w/justinyates887/blue-haired-girl-bot)
 ![maintained](https://img.shields.io/maintenance/yes/2021)
 
-### The purpose of this bot is to provide an all-encompasing administrative bot for discord servers to reduce bot clutter.
+**The purpose of this bot is to provide an all-encompasing administrative bot for discord servers to reduce bot clutter.**
 
-*This development is still in Beta.*
+> *Current version 2.1.0*
 
-Current version 0.3
+> *Current beta 2.1.0*
+
+---------------------------------------------------------------------------------------------------------------------------
+
+### This Repo is the *beta*
+
+For the stable repo go to: [GitHub](https://github.com/Small-Blue-Development/the-blue-haired-girl-v1.0)
 
 ---------------------------------------------------------------------------------------------------------------------------
 
@@ -30,8 +35,49 @@ Justin Yates & Azrael
 
 ---------------------------------------------------------------------------------------------------------------------------
 
+#### Sponsor this project <3
+[Buy Us a Cup of Coffee](https://www.buymeacoffee.com/smallbluedev)
+![coffee](https://img.shields.io/badge/%E2%98%95-%244.00%20Raised-yellow)
 
-**Expected features in Version 1.0.0** (The Admin Bot Launch)
+---------------------------------------------------------------------------------------------------------------------------
+
+## Table of Contents:
+
+> - [License](#license)
+
+> - [v1.0.0 (previous)](#v1)
+
+> - [v2.0.0 (stable)](#v2)
+
+> - [v3.0.0](#v3)
+
+> - [v4.0.0](#v4)
+
+> - [v5.0.0](#v5)
+
+> - [Current Issues](#current-issues)
+
+---------------------------------------------------------------------------------------------------------------------------
+
+## <a name="license"></a>License
+
+Copyright (C) <2021>
+> This program is free software: you can redistribute it and/or modify
+it under the terms of the GNU General Public License as published by
+the Free Software Foundation, either version 3 of the License, or
+any later version.
+
+> This program is distributed in the hope that it will be useful,
+but WITHOUT ANY WARRANTY; without even the implied warranty of
+MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+GNU General Public License for more details.
+
+> You should have received a copy of the GNU General Public License
+along with this program.  If not, see <https://www.gnu.org/licenses/>.
+
+---------------------------------------------------------------------------------------------------------------------------
+
+## <a name="v1"></a>Current features in Version 1.0.0 (The Admin Bot Launch)
 
 - [x] kick/ban commands
 - [x] audit logs
@@ -48,17 +94,18 @@ Justin Yates & Azrael
 
 ---------------------------------------------------------------------------------------------------------------------------
 
-**Expected in Version 2.0.0** (The User Exp. Update)
+## <a name="v2"></a>Expected in Version 2.0.0 (The User Exp. Update)
 
-- quick announcements
-- meme functionality
-- giveaways
-- leveling
-- bot updater (notifies channel log when bot will be down as well as new versions and features.)
+- [x] quick announcements
+- [x] meme functionality
+- [x] giveaways
+- [x] create role function
+- [x] delete role function
+- bot updater (notifies channel log when bot will be down as well as new versions and features.) *(suspended until further notice)*
 
 ---------------------------------------------------------------------------------------------------------------------------
 
-**Expected in Version 3.0.0** (The BIG Update)
+## <a name="v3"></a>Expected in Version 3.0.0 (The BIG Update)
 
 - server stats
 - welcome card with captcha
@@ -66,16 +113,18 @@ Justin Yates & Azrael
 - reaction roles
 - support ticket
 - captcha verification
+- dice rolls
+- upvote / downvote reactions to specific messages
 
 ---------------------------------------------------------------------------------------------------------------------------
 
-**Expected in version 4.0.0** (The random update)
+## <a name="v4"></a>Expected in version 4.0.0 (The random update)
 - !easteregg comand that gives you a random easter egg fact
 - !random command that executes a random, non admin command.
 
 ---------------------------------------------------------------------------------------------------------------------------
 
-**Expected in version 5.0.0** (The customization/databse update)
+## <a name="v5"></a>Expected in version 5.0.0 (The customization/databse update)
 - Allow for changing of prefix
 - Allow for custom log channel
 - Leveling (user levels)/ member rank
@@ -87,12 +136,25 @@ Justin Yates & Azrael
 - block links(with role specific capabilities)
 - message delete/change log
 - role specific functionality
+- leveling
 
 ---------------------------------------------------------------------------------------------------------------------------
 
-**Current Issues**
+### <a name="current-issues"></a>Current Issues
 
-- Pretty much everything.
+- not a bug in our program, but a user bug:
+
+> prefix is widely used, and until it can be altered by users should be changed to something more specific like b! or bh!(edited)
+January 8, 2021
+
+- certain logs do not indicate targets (such as the nuke command)
+
+- need to be able to target a channel in the delete channel command instead of having to run the command in the channel
+
+- need to fix announce command to include channels that people specify with # as well as other commands that function off of @roles and #channels
+
+- most logs do not specify what user invoked the command
+
 
 ---------------------------------------------------------------------------------------------------------------------------
 

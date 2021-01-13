@@ -11,7 +11,7 @@ module.exports = {
             let embed = new Discord.MessageEmbed() //sets send card message
                 .setAuthor("Your kindness helps keep developments like this free forever <3") // Header of card
                 .setColor("#486dAA") //Side bar color
-                .setDescription("**Buy us a cup of coffee**\nhttps://www.buymeacoffee.com/smallbluedev\n\n**PayPal**\nhttps://www.paypal.com/biz/fund?id=KZERMCEU8TXQ4\n")
+                .setDescription("**Buy us a cup of coffee**\nhttps://www.buymeacoffee.com/smallbluedev\n\n**PayPal**\nhttps://www.paypal.com/biz/fund?id=KZERMCEU8TXQ4") //main text body
                 .setFooter(config.footer) //footer/watermark
             return msg.channel.send(embed);
         }
