@@ -121,6 +121,8 @@ client.on('message', (msg) => {
         client.commands.get('membercount').execute(msg, memberCount); //dont know if can do without db
     } */else if (command === 'roll'){
         client.commands.get('roll').execute(msg, args); //done
+    } else if(command === 'vote'){
+        client.commands.get('vote').execute(msg);
     }
 });
 
