@@ -156,7 +156,7 @@ client.on('guildMemberRemove', member => {
         guild.channels.cache.find('blue-logs').send(`**${member.username}** has just left server...`);
     }
 
-    /*let memberCount = guild.memberCount;
+    /*let memberCount = member.guild.memberCount;
 
     if(guild.channels.cache.find('Member Count: ' + (memberCount + 1).toString())){
         guild.channels.cache.find('Member Count: ' + (memberCount + 1).toString()).delete();
@@ -178,7 +178,7 @@ client.on('guildMemberAdd', member => {
         guild.channels.cache.find('blue-logs').send(`**${member.username}** has just joined server!`);
     }
 
-    /*let memberCount = guild.memberCount;
+    /*let memberCount = member.guild.memberCount;
 
     if(guild.channels.cache.find('Member Count: ' + (memberCount - 1).toString())){
         guild.channels.cache.find('Member Count: ' + (memberCount - 1).toString()).delete();
