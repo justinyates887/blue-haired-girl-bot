@@ -11,6 +11,9 @@ module.exports = {
             return msg.channel.send('missing permissions')
         }
 
+        const { guild } = msg;
+        let role;
+        let roleName;
         let rMember = msg.mentions.users.first();
         let rMemberID = rMember.id;
 
@@ -25,23 +28,31 @@ module.exports = {
             }
         }
 
-        let roleName = msg.mentions.roles.first();
-        let roleNameID = roleName.id;
+        roleName = msg.mentions.roles.first();
 
         if (!roleName){
-            if (config.embeds === true) { //Checks if the embed option is true then creates and sends this embed 
-                let embed = new Discord.MessageEmbed() //sets send card message
-                    .setAuthor("Hmmmm...") // Header of card
-                    .setColor("#486dAA") //Side bar color
-                    .setDescription("Did you specify a role?") //main text body
-                    .setFooter(config.footer) //footer/watermark
-                return msg.channel.send(embed);
+            if(args){
+                let burn = args.shift();
+                roleName = args.join(' ');
+                console.log(roleName);
+                roleName = guild.roles.cache.find((role) => {
+                    return role.name === roleName;
+                })
+            } else {
+                if (config.embeds === true) { //Checks if the embed option is true then creates and sends this embed 
+                    let embed = new Discord.MessageEmbed() //sets send card message
+                        .setAuthor("Hmmmm...") // Header of card
+                        .setColor("#486dAA") //Side bar color
+                        .setDescription("Did you specify a role?") //main text body
+                        .setFooter(config.footer) //footer/watermark
+                    return msg.channel.send(embed);
+                }
             }
         }
 
-        const { guild } = msg;
+        let roleNameID = roleName.id;
 
-        const role = guild.roles.cache.find((role) => {
+        role = guild.roles.cache.find((role) => {
              return role.id === roleNameID;
          })
 
