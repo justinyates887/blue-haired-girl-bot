@@ -8,7 +8,8 @@ module.exports = {
 
     execute(msg, args){
         let x = msg.content.split(' ').slice(1);
-        let store = x.toString().split('d').join(',').split('+').join(',').split(','); 
+        let store = x.toString().split('d').join(',').split('+').join(',').split(',');
+        msg.delete();
 
         //checks for spaces or empty values
         if(store[0] == ''){
