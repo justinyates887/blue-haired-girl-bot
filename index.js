@@ -7,7 +7,6 @@ const fs = require('fs')                    //initialize fs (goes with discord.c
 client.commands = new Discord.Collection(); //for client.command.get
 const bot = '794674548875460649';           //bot Uid
 let logs;
-let serverStats;
 
 
 //This will read the directory of discord's commands and filter it through our file.
@@ -38,6 +37,8 @@ client.once('ready', async () => {
 
 //checks meesages to listen for command
 client.on('message', (msg) => {
+    //chaches current member count
+    let memberCount = msg.guild.memberCount.toLocaleString();
 
     //checks for log channel
     let blueLogs = msg.guild.channels.cache.find(c => c.name === ('blue-logs'));
@@ -47,6 +48,7 @@ client.on('message', (msg) => {
     if (!blueLogs) {
         logs = false;
     }
+
     //if there is no message end the method
     if (msg.author.bot || !msg.content.startsWith(config.prefix)) return;
     
@@ -115,9 +117,11 @@ client.on('message', (msg) => {
         client.commands.get('hentai').execute(msg); //done
     }  else if (command === 'reddit'){
         client.commands.get('reddit').execute(msg, args); //done
-    } /*else if (command === 'createserverstats'){
-        client.commands.get('createserverstats').execute(msg, args);
-    }*/
+    } /*else if (command === 'membercount'){
+        client.commands.get('membercount').execute(msg, memberCount); //dont know if can do without db
+    } */else if (command === 'roll'){
+        client.commands.get('roll').execute(msg, args); //done
+    }
 });
 
 //Sends welcome message with info on invite
@@ -146,10 +150,48 @@ client.on("guildCreate", guild => {
 
 //sends message to log channel if logs are on
 
-client.on('guildMemberRemove',(member) => {
+//On member leave
+client.on('guildMemberRemove', member => {
     if(logs === true){
-        client.channels.cache.find('blue-logs').send(`**${member.username}** has just left server...`);
+        guild.channels.cache.find('blue-logs').send(`**${member.username}** has just left server...`);
     }
+
+    /*let memberCount = guild.memberCount;
+
+    if(guild.channels.cache.find('Member Count: ' + (memberCount + 1).toString())){
+        guild.channels.cache.find('Member Count: ' + (memberCount + 1).toString()).delete();
+        msg.guild.channels.create(`Member Count: ${memberCount}`, {
+            type: 'voice',
+            permissionOverwrites: [
+                {
+                    id: msg.guild.id,
+                    allow: ['VIEW_CHANNEL'],
+                    deny: ['CONNECT']
+                }]
+            })
+    }*/
+})
+
+//On member join
+client.on('guildMemberAdd', member => {
+    if(logs === true){
+        guild.channels.cache.find('blue-logs').send(`**${member.username}** has just joined server!`);
+    }
+
+    /*let memberCount = guild.memberCount;
+
+    if(guild.channels.cache.find('Member Count: ' + (memberCount - 1).toString())){
+        guild.channels.cache.find('Member Count: ' + (memberCount - 1).toString()).delete();
+        msg.guild.channels.create(`Member Count: ${memberCount}`, {
+            type: 'voice',
+            permissionOverwrites: [
+                {
+                    id: msg.guild.id,
+                    allow: ['VIEW_CHANNEL'],
+                    deny: ['CONNECT']
+                }]
+            })
+    }*/
 })
 
 //adds token so bot will initalize from .env
