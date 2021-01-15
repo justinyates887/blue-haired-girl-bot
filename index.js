@@ -122,9 +122,11 @@ client.on('message', (msg) => {
     } else if (command === 'roll'){
         client.commands.get('roll').execute(msg, args); //done
     } else if(command === 'vote'){
-        client.commands.get('vote').execute(msg);
+        client.commands.get('vote').execute(msg); //done
     } else if (command === 'makemutedrole'){
         client.commands.get('makemutedrole').execute(msg);
+    } else if (command === 'easteregg'){
+        client.commands.get('easteregg').execute(msg); //done
     }
 });
 
