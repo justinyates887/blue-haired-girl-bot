@@ -4,7 +4,7 @@ const Discord = require("discord.js");
 
 module.exports = {
     name: 'announce',
-    description: 'sends an announcement to @everyone in target channel',
+    description: 'sends an announcement to targets in target channel',
 
     execute(msg, args){
         if (!msg.member.hasPermission('ADMINISTRATOR')) {
@@ -13,6 +13,12 @@ module.exports = {
 
         let targetChannel = msg.mentions.channels.first();
         let targetChannelID = targetChannel.id;
+        let targetAudience = msg.mentions.users.first();
+
+        if(!targetAudience){
+            targetAudience = '';
+        }
+        let targetAudienceName = targetAudience.username;
         let burn = args.shift();
         let message = args.join(' ')
 
@@ -45,8 +51,11 @@ module.exports = {
                 let embed = new Discord.MessageEmbed() //sets send card message
                     .setAuthor("Hey!") // Header of card
                     .setColor("#486dAA") //Side bar color
-                    .setDescription(`@everyone ${message}`) //main text body
-                return target.send(embed);
+                    .setDescription(`${message}`) //main text body
+                target.send(embed);
+            }
+            if(targetAudience !== ''){
+                target.send(targetAudienceName + '.');
             }
         }
     }

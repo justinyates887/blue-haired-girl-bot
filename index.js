@@ -117,12 +117,14 @@ client.on('message', (msg) => {
         client.commands.get('hentai').execute(msg); //done
     }  else if (command === 'reddit'){
         client.commands.get('reddit').execute(msg, args); //done
-    } /*else if (command === 'membercount'){
+    } else if (command === 'membercount'){
         client.commands.get('membercount').execute(msg, memberCount); //dont know if can do without db
-    } */else if (command === 'roll'){
+    } else if (command === 'roll'){
         client.commands.get('roll').execute(msg, args); //done
     } else if(command === 'vote'){
         client.commands.get('vote').execute(msg);
+    } else if (command === 'makemutedrole'){
+        client.commands.get('makemutedrole').execute(msg);
     }
 });
 
@@ -158,7 +160,7 @@ client.on('guildMemberRemove', member => {
         guild.channels.cache.find('blue-logs').send(`**${member.username}** has just left server...`);
     }
 
-    /*let memberCount = member.guild.memberCount;
+    let memberCount = member.guild.memberCount;
 
     if(guild.channels.cache.find('Member Count: ' + (memberCount + 1).toString())){
         guild.channels.cache.find('Member Count: ' + (memberCount + 1).toString()).delete();
@@ -171,7 +173,7 @@ client.on('guildMemberRemove', member => {
                     deny: ['CONNECT']
                 }]
             })
-    }*/
+    }
 })
 
 //On member join
@@ -180,7 +182,7 @@ client.on('guildMemberAdd', member => {
         guild.channels.cache.find('blue-logs').send(`**${member.username}** has just joined server!`);
     }
 
-    /*let memberCount = member.guild.memberCount;
+    let memberCount = member.guild.memberCount;
 
     if(guild.channels.cache.find('Member Count: ' + (memberCount - 1).toString())){
         guild.channels.cache.find('Member Count: ' + (memberCount - 1).toString()).delete();
@@ -193,7 +195,7 @@ client.on('guildMemberAdd', member => {
                     deny: ['CONNECT']
                 }]
             })
-    }*/
+    }
 })
 
 //adds token so bot will initalize from .env
