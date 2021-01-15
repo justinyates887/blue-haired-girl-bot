@@ -108,13 +108,13 @@ along with this program.  If not, see <https://www.gnu.org/licenses/>.
 ## <a name="v3"></a>Expected in Version 3.0.0 (The BIG Update)
 
 - server stats
-- welcome card with captcha
-- music functionality
-- reaction roles
+- welcome card with captcha *(moved to v5)*
+- [x] music functionality
+- reaction roles *(moved to v5)*
 - support ticket
-- captcha verification
-- dice rolls
-- upvote / downvote reactions to specific messages
+- captcha verification *(moved to v5)*
+- [x] dice rolls
+- [x] upvote / downvote reactions to specific messages
 
 ---------------------------------------------------------------------------------------------------------------------------
 
