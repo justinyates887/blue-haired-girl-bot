@@ -15,7 +15,7 @@
 
 ### This Repo is the *beta*
 
-For the stable repo go to: [GitHub](https://github.com/Small-Blue-Development/the-blue-haired-girl-v1.0)
+For the stable repo go to: [GitHub](https://github.com/Small-Blue-Development/the-blue-haired-girl-v2.0)
 
 ---------------------------------------------------------------------------------------------------------------------------
 
@@ -52,8 +52,6 @@ Justin Yates & Azrael
 > - [v3.0.0](#v3)
 
 > - [v4.0.0](#v4)
-
-> - [v5.0.0](#v5)
 
 > - [Current Issues](#current-issues)
 
@@ -94,7 +92,7 @@ along with this program.  If not, see <https://www.gnu.org/licenses/>.
 
 ---------------------------------------------------------------------------------------------------------------------------
 
-## <a name="v2"></a>Expected in Version 2.0.0 (The User Exp. Update)
+## <a name="v2"></a>Current in Version 2.0.0 (The User Exp. Update)
 
 - [x] quick announcements
 - [x] meme functionality
@@ -108,23 +106,17 @@ along with this program.  If not, see <https://www.gnu.org/licenses/>.
 ## <a name="v3"></a>Expected in Version 3.0.0 (The BIG Update)
 
 - server stats
-- welcome card with captcha *(moved to v5)*
+- welcome card with captcha *(moved to v4)*
 - [x] music functionality
-- reaction roles *(moved to v5)*
+- reaction roles *(moved to v4)*
 - support ticket
-- captcha verification *(moved to v5)*
+- captcha verification *(moved to v4)*
 - [x] dice rolls
 - [x] upvote / downvote reactions to specific messages
 
 ---------------------------------------------------------------------------------------------------------------------------
 
-## <a name="v4"></a>Expected in version 4.0.0 (The random update)
-- !easteregg comand that gives you a random easter egg fact
-- !random command that executes a random, non admin command.
-
----------------------------------------------------------------------------------------------------------------------------
-
-## <a name="v5"></a>Expected in version 5.0.0 (The customization/databse update)
+## <a name="v4"></a>Expected in version 4.0.0 (The customization/databse update)
 - Allow for changing of prefix
 - Allow for custom log channel
 - Leveling (user levels)/ member rank
