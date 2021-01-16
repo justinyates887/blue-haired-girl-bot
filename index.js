@@ -123,10 +123,10 @@ client.on('message', (msg) => {
         client.commands.get('roll').execute(msg, args); //done
     } else if(command === 'vote'){
         client.commands.get('vote').execute(msg); //done
-    } else if (command === 'makemutedrole'){
-        client.commands.get('makemutedrole').execute(msg);
     } else if (command === 'easteregg'){
         client.commands.get('easteregg').execute(msg); //done
+    } else if(command === 'ticket'){
+        client.commands.get('ticket').execute(msg, args, logs, blueLogs, client);
     }
 });
 
