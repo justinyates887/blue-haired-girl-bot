@@ -14,6 +14,17 @@ module.exports = {
  
             let mainRole = msg.guild.roles.cache.find(role => role.name === 'member');
             let muteRole = msg.guild.roles.cache.find(role => role.name === 'MUTED');
+
+            if(!muteRole){
+                if (config.embeds === true) {
+                    let embed = new Discord.MessageEmbed()
+                        .setAuthor("Oh no....")
+                        .setColor("#486dAA")
+                        .setDescription("I can't find the @MUTED role. You need to have this role in order to use our mute command.")
+                        .setFooter(config.footer)
+                    return msg.channel.send(embed);
+                }
+            }
  
             let memberTarget = msg.guild.members.cache.get(target.id);
  

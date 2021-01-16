@@ -4,19 +4,39 @@ const Discord = require("discord.js");
 
 module.exports = {
     name: 'announce',
-    description: 'sends an announcement to @everyone in target channel',
+    description: 'sends an announcement to targets in target channel',
 
     execute(msg, args){
         if (!msg.member.hasPermission('ADMINISTRATOR')) {
             return msg.channel.send('missing permissions')
         }
 
+        let title = [
+            'Hey!',
+            'Guess What?!',
+            'Attention!',
+            'You Should Know...',
+            'Announcement!'
+        ]
+
         let targetChannel = msg.mentions.channels.first();
         let targetChannelID = targetChannel.id;
+        let targetAudience;
+
+        if(msg.mentions.users.first()){
+            targetAudience = args.splice(args.indexOf(msg.mentions.users.first()));
+        } else if(msg.mentions.roles.first()){
+            targetAudience = args.splice(args.indexOf(msg.mentions.roles.first()));
+        } else {
+            targetAudience = '';
+        }
+        
         let burn = args.shift();
         let message = args.join(' ')
+        let random = Math.floor((Math.random() * 5));
+        console.log(random);
 
-        const { guild } = msg;
+        const { guild } = msg; 
 
         const target = guild.channels.cache.find((target) => {
             return target.id === targetChannelID;
@@ -43,10 +63,13 @@ module.exports = {
         } else {
             if (config.embeds === true) { //Checks if the embed option is true then creates and sends this embed 
                 let embed = new Discord.MessageEmbed() //sets send card message
-                    .setAuthor("Hey!") // Header of card
+                    .setAuthor(title[random]) // Header of card
                     .setColor("#486dAA") //Side bar color
-                    .setDescription(`@everyone ${message}`) //main text body
-                return target.send(embed);
+                    .setDescription(`${message}`) //main text body
+                target.send(embed);
+            }
+            if(targetAudience !== ''){
+                target.send(targetAudience + '!');
             }
         }
     }

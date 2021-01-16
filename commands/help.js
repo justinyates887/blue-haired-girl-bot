@@ -11,7 +11,7 @@ module.exports = {
             let embed = new Discord.MessageEmbed() //sets send card message
                 .setAuthor("Help") // Header of card
                 .setColor("#486dAA") //Side bar color
-                .setDescription("- **!adminhelp** for list of admin commands\n- **!userhelp** for list of user commands") //main text body
+                .setDescription("- **b!adminhelp** for list of admin commands\n- **b!userhelp** for list of user commands") //main text body
                 .setFooter(config.footer) //footer/watermark
             msg.channel.send(embed);
         }
