@@ -134,10 +134,17 @@ along with this program.  If not, see <https://www.gnu.org/licenses/>.
 
 ### <a name="current-issues"></a>Current Issues
 
+- music bot loop function only loops current song, not entire queue
+
+- kick command does not work on bots
+
+---------------------------------------------------------------------------------------------------------------------------
+
+### <a name="solved-issues"></a>Solved Issues
+
 - not a bug in our program, but a user bug:
 
-> prefix is widely used, and until it can be altered by users should be changed to something more specific like b! or bh!(edited)
-January 8, 2021
+> prefix is widely used, and until it can be altered by users should be changed to something more specific like b! or bh!
 
 - certain logs do not indicate targets (such as the nuke command)
 
@@ -146,8 +153,5 @@ January 8, 2021
 - need to fix announce command to include channels that people specify with # as well as other commands that function off of @roles and #channels
 
 - most logs do not specify what user invoked the command
-
-
----------------------------------------------------------------------------------------------------------------------------
 
 ![logo](./BHG.png)
