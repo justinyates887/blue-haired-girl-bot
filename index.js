@@ -118,8 +118,8 @@ client.on('message', (msg) => {
     }  else if (command === 'reddit'){
         client.commands.get('reddit').execute(msg, args); //done
     } /*else if (command === 'membercount'){
-        client.commands.get('membercount').execute(msg, memberCount); //dont know if can do without db
-    }*/else if (command === 'roll'){
+        client.commands.get('membercount').execute(msg, client); //dont know if can do without db
+    } */else if (command === 'roll'){
         client.commands.get('roll').execute(msg, args); //done
     } else if(command === 'vote'){
         client.commands.get('vote').execute(msg); //done
@@ -128,6 +128,11 @@ client.on('message', (msg) => {
     } else if(command === 'ticket'){
         client.commands.get('ticket').execute(msg, args, logs, blueLogs, client);
     }
+/*******************************************************Not to be released until version 3.1*************************************************************/
+   /* else if (command === 'csgo'){
+        client.commands.get('csgo').execute(msg, args);
+    }*/
+/********************************************************************************************************************************************************/
 });
 
 //Sends welcome message with info on invite
@@ -157,8 +162,11 @@ client.on("guildCreate", guild => {
 //sends message to log channel if logs are on
 
 //On member leave
-client.on('guildMemberRemove', (member, logs) => {
-    let blueLogs = msg.guild.channels.cache.find(c => c.name === ('blue-logs'));
+client.on('guildMemberRemove', (member) => {
+
+    console.log('test')
+
+    let blueLogs = member.guild.channels.cache.find(c => c.name === ('blue-logs'));
     if (blueLogs){
         logs = true;
     }
@@ -169,60 +177,26 @@ client.on('guildMemberRemove', (member, logs) => {
         blueLogs.send(`${member} has left the server...`);
     }
 
-    let memberCount = member.guild.memberCount;
-    let memberChannel = member.guild.channels.cache.find('Member Count:' + (memberCount + 1).toString());
-
-    console.log('reaching here');
-
-    if(memberChannel){
-        memberChannel.delete();
-        member.guild.channels.create(`Member Count: ${memberCount}`, {
-            type: 'voice',
-            permissionOverwrites: [
-                {
-                    id: member.guild.id,
-                    allow: ['VIEW_CHANNEL'],
-                    deny: ['CONNECT']
-                }]
-            })
-    } else{
-        return
-    }
+    //client.commands.get('membercount').execute(msg);
 })
 
 //On member join
-client.on('guildMemberAdd', member => {
-    let blueLogs = msg.guild.channels.cache.find(c => c.name === ('blue-logs'));
+client.on('guildMemberAdd', (member) => {
+
+    console.log('test')
+
+    let blueLogs = member.guild.channels.cache.find(c => c.name === ('blue-logs'));
     if (blueLogs){
         logs = true;
     }
     if (!blueLogs) {
         logs = false;
     }
-
     if(logs){
         blueLogs.send(`${member} has joined the server!`);
     }
 
-    let memberCount = member.guild.memberCount;
-    let memberChannel = member.guild.channels.cache.find('Member Count:' + (memberCount - 1).toString());
-    
-    console.log('reaching here');
-
-    if(memberChannel){
-       memberChannel.delete();
-        member.guild.channels.create(`Member Count: ${memberCount}`, {
-            type: 'voice',
-            permissionOverwrites: [
-                {
-                    id: member.guild.id,
-                    allow: ['VIEW_CHANNEL'],
-                    deny: ['CONNECT']
-                }]
-            })
-    } else {
-        return
-    }
+    //client.commands.get('membercount').execute(msg);
 })
 
 //adds token so bot will initalize from .env
