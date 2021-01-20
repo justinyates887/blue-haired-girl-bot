@@ -151,6 +151,7 @@ client.on('message', (msg) => {
 
 //Sends welcome message with info on invite
 client.on("guildCreate", guild => {
+    client.user.setActivity(`${config.prefix}help | ${servers} servers!`);
     let found = 0;
     guild.channels.cache.map((channel) => {
         if (found === 0) {
