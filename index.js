@@ -173,7 +173,12 @@ client.on("guildCreate", guild => {
                     let embed = new Discord.MessageEmbed()
                         .setAuthor("Hello!")
                         .setColor("#486dAA") 
-                        .setDescription("Thank you for inviting me!\n\n We are still in production and have no database yet, so customization is limited. There are a few things you need to have for some functions to work properly.\n\nIf you would like to recieve logs, please use the command !addlogschannel. This will create a channel called #blue-logs where all of our logs will be sent. If there is no such channel no logs will be sent.\n\nThe !mute command requires the role @MUTED\n\nTo see a full list of commands use !help\n\nTo follow production visit us at https://github.com/justinyates887/blue-haired-girl-bot \n\nTo report a bug please friend @erodias#9576 or join the Official Discord Channel: https://discord.gg/tb4mZWtXC8") //main text body
+                        .setDescription("Thank you for inviting me!\n\n We are still in production and have no database yet, so customization is limited. \
+                        There are a few things you need to have for some functions to work properly.\n\nIf you would like to recieve logs, please use the \
+                        command !addlogschannel. This will create a channel called #blue-logs where all of our logs will be sent. If there is no such \
+                        channel no logs will be sent.\n\nThe !mute command requires the role @MUTED\n\nTo see a full list of commands use !help\n\n\
+                        To follow production visit us at https://github.com/justinyates887/blue-haired-girl-bot \n\nTo report a bug please friend \
+                        @erodias#9576 or join the Official Discord Channel: https://discord.gg/tb4mZWtXC8") //main text body
                         .setFooter(config.footer)
                          channel.send(embed);
                 }
