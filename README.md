@@ -129,6 +129,7 @@ along with this program.  If not, see <https://www.gnu.org/licenses/>.
 - message delete/change log
 - role specific functionality
 - leveling
+- currency
 
 ---------------------------------------------------------------------------------------------------------------------------
 
