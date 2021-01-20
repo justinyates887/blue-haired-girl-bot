@@ -4,10 +4,16 @@ const client = new Discord.Client()         //create instance of discord client
 const config = require("./config.json")     //initialize config.json
 const path = require('path')
 const fs = require('fs')                    //initialize fs (goes with discord.collection)
+const DBL = require("dblapi.js");           //Top.gg API
+const dbl = new DBL('eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6Ijc5NDY3NDU0ODg3NTQ2MDY0OSIsImJvdCI6dHJ1ZSwiaWF0IjoxNjExMTY0MDM5fQ._xTPzCfejiQuftOibOgMgw1gjXap0-2qZHWkAG4iVhA', client);
 client.commands = new Discord.Collection(); //for client.command.get
 const bot = '794674548875460649';           //bot Uid
 let logs;
 
+//verifies server cou
+dbl.on('posted', () => {
+    console.log('Server count posted!');
+  });
 
 //This will read the directory of discord's commands and filter it through our file.
 const commandFiles = fs.readdirSync('./commands/').filter(file => file.endsWith('.js'));
@@ -49,7 +55,15 @@ client.on('message', (msg) => {
         logs = false;
     }
 
-    //if there is no message end the method
+    //checks blue haired server for voters on top.gg
+    if(msg.guild.id === '795324515034726410'){
+        let user = msg.user.id;
+        dbl.hasVoted(user).then(voted => {
+            if (voted) user.roles.add('801158747070136330');
+        });
+    }
+
+    //if there is no message with prefix end the method
     if (msg.author.bot || !msg.content.startsWith(config.prefix)) return;
     
     //seperated the message into parts
