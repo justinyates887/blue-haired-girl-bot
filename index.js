@@ -32,14 +32,19 @@ client.once('ready', async () => {
 
     //logs to console bot online
     console.log(`Logged in as ${client.user.tag} (${client.user.id}) on ${servers} servers`);
-
-    //sets game activity
-    client.user.setActivity(`${config.prefix}help | ${servers} servers!`);
+    
+    //posts to top.gg
+    setInterval(() => {
+        //posts stats to top.gg
+        dbl.postStats(client.guilds.size, client.shards.Id, client.shards.total);
+        //sets game activity
+        client.user.setActivity(`${config.prefix}help | ${servers} servers!`);
+    }, 1800000);
 });
 
     //*****************************************This is where version update goes when new version/features/bug fixes are added**********************************************
 
-    // **********************************************************************************************************************************************************************
+    //**********************************************************************************************************************************************************************
 
 //checks meesages to listen for command
 client.on('message', (msg) => {
@@ -57,9 +62,15 @@ client.on('message', (msg) => {
 
     //checks blue haired server for voters on top.gg
     if(msg.guild.id === '795324515034726410'){
-        let user = msg.user.id;
+        let user = msg.author.id;
+        let role = msg.guild.roles.cache.find((role) => {
+            return role.id == '801158747070136330';
+        })
+        const member = msg.guild.members.cache.find((member) => {
+            return member.id === msg.author.id;
+        });
         dbl.hasVoted(user).then(voted => {
-            if (voted) user.roles.add('801158747070136330');
+            if (voted) member.roles.add(role);
         });
     }
 
