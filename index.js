@@ -5,6 +5,8 @@ const config = require("./config.json")     //initialize config.json
 const path = require('path')
 const fs = require('fs')                    //initialize fs (goes with discord.collection)
 client.commands = new Discord.Collection(); //for client.command.get
+const DBL = require("dblapi.js");
+const dbl = new DBL('eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6Ijc5NDY3NDU0ODg3NTQ2MDY0OSIsImJvdCI6dHJ1ZSwiaWF0IjoxNjExMTY0MDM5fQ._xTPzCfejiQuftOibOgMgw1gjXap0-2qZHWkAG4iVhA', client);
 const bot = '794674548875460649';           //bot Uid
 let logs;
 
@@ -30,10 +32,10 @@ client.once('ready', async () => {
     //posts to top.gg
     setInterval(() => {
         //posts stats to top.gg
-        dbl.postStats(client.guilds.size, client.shards.Id, client.shards.total);
+        dbl.postStats(client.guilds.size);
         //sets game activity
         client.user.setActivity(`${config.prefix}help | ${servers} servers!`);
-    }, 1800000);
+    }, 180000);
 });
 
     //*****************************************This is where version update goes when new version/features/bug fixes are added**********************************************
