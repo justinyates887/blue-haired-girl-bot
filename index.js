@@ -30,8 +30,7 @@ client.once('ready', async () => {
     console.log(`Logged in as ${client.user.tag} (${client.user.id}) on ${servers} servers`);
     
     //posts to top.gg
-    setInterval(() => {
-        //posts stats to top.gg
+
         dbl.postStats(client.guilds.size);
         //sets game activity
         client.user.setActivity(`${config.prefix}help | ${servers} servers!`);
