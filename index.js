@@ -28,12 +28,11 @@ client.once('ready', async () => {
     console.log(`Logged in as ${client.user.tag} (${client.user.id}) on ${servers} servers`);
     
     //posts to top.gg
-    setInterval(() => {
+
         //posts stats to top.gg
-        dbl.postStats(client.guilds.size, client.shards.Id, client.shards.total);
+        //dbl.postStats(client.guilds.size, client.shards.Id, client.shards.total);
         //sets game activity
         client.user.setActivity(`${config.prefix}help | ${servers} servers!`);
-    }, 1800000);
 });
 
     //*****************************************This is where version update goes when new version/features/bug fixes are added**********************************************
