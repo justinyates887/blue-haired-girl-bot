@@ -4,16 +4,10 @@ const client = new Discord.Client()         //create instance of discord client
 const config = require("./config.json")     //initialize config.json
 const path = require('path')
 const fs = require('fs')                    //initialize fs (goes with discord.collection)
-const DBL = require("dblapi.js");           //Top.gg API
-const dbl = new DBL('eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6Ijc5NDY3NDU0ODg3NTQ2MDY0OSIsImJvdCI6dHJ1ZSwiaWF0IjoxNjExMTY0MDM5fQ._xTPzCfejiQuftOibOgMgw1gjXap0-2qZHWkAG4iVhA', client);
 client.commands = new Discord.Collection(); //for client.command.get
 const bot = '794674548875460649';           //bot Uid
 let logs;
 
-//verifies server cou
-dbl.on('posted', () => {
-    console.log('Server count posted!');
-  });
 
 //This will read the directory of discord's commands and filter it through our file.
 const commandFiles = fs.readdirSync('./commands/').filter(file => file.endsWith('.js'));
@@ -43,27 +37,16 @@ client.once('ready', async () => {
 
 //checks meesages to listen for command
 client.on('message', (msg) => {
-    //chaches current member count
-    let memberCount = msg.guild.memberCount.toLocaleString();
-
-    //checks for log channel
-    let blueLogs = msg.guild.channels.cache.find(c => c.name === ('blue-logs'));
+    let blueLogs
+    blueLogs = msg.guild.channels.cache.find(c => c.name === ('blue-logs'));
     if (blueLogs){
         logs = true;
     }
-    if (!blueLogs) {
+    else{
         logs = false;
     }
-
-    //checks blue haired server for voters on top.gg
-    if(msg.guild.id === '795324515034726410'){
-        let user = msg.user.id;
-        dbl.hasVoted(user).then(voted => {
-            if (voted) user.roles.add('801158747070136330');
-        });
-    }
-
-    //if there is no message with prefix end the method
+    
+    //if there is no message end the method
     if (msg.author.bot || !msg.content.startsWith(config.prefix)) return;
     
     //seperated the message into parts
@@ -131,27 +114,11 @@ client.on('message', (msg) => {
         client.commands.get('hentai').execute(msg); //done
     }  else if (command === 'reddit'){
         client.commands.get('reddit').execute(msg, args); //done
-    } /*else if (command === 'membercount'){
-        client.commands.get('membercount').execute(msg, client); //dont know if can do without db
-    } */else if (command === 'roll'){
-        client.commands.get('roll').execute(msg, args); //done
-    } else if(command === 'vote'){
-        client.commands.get('vote').execute(msg); //done
-    } else if (command === 'easteregg'){
-        client.commands.get('easteregg').execute(msg); //done
-    } else if(command === 'ticket'){
-        client.commands.get('ticket').execute(msg, args, logs, blueLogs, client);
     }
-/*******************************************************Not to be released until version 3.1*************************************************************/
-   /* else if (command === 'csgo'){
-        client.commands.get('csgo').execute(msg, args);
-    }*/
-/********************************************************************************************************************************************************/
 });
 
 //Sends welcome message with info on invite
 client.on("guildCreate", guild => {
-    client.user.setActivity(`${config.prefix}help | ${servers} servers!`);
     let found = 0;
     guild.channels.cache.map((channel) => {
         if (found === 0) {
@@ -162,11 +129,22 @@ client.on("guildCreate", guild => {
                     let embed = new Discord.MessageEmbed()
                         .setAuthor("Hello!")
                         .setColor("#486dAA") 
-                        .setDescription("Thank you for inviting me!\n\n We are still in production and have no database yet, so customization is limited. There are a few things you need to have for some functions to work properly.\n\nIf you would like to recieve logs, please use the command !addlogschannel. This will create a channel called #blue-logs where all of our logs will be sent. If there is no such channel no logs will be sent.\n\nThe !mute command requires the role @MUTED\n\nTo see a full list of commands use !help\n\nTo follow production visit us at https://github.com/justinyates887/blue-haired-girl-bot \n\nTo report a bug please friend @erodias#9576 or join the Official Discord Channel: https://discord.gg/tb4mZWtXC8") //main text body
+                        .setDescription("Thank you for inviting me!\n\n We are still in production and have no database yet, so customization is limited. There are a few things you need to have for some functions to work properly.\n\nIf you have invited me as an admin, a channel called #blue-logs should have been created. This is our log channel. If it hasn't, please create it if you would llike logs!\n\nThe !mute command requires the role @MUTED\n\nTo see a full list of commands use !help\n\nTo follow production visit us at https://github.com/justinyates887/blue-haired-girl-bot \n\nTo report a bug please friend @erodias#9576 or join the Official Discord Channel: https://discord.gg/tb4mZWtXC8") //main text body
                         .setFooter(config.footer)
                          channel.send(embed);
                 }
                 found = 1;
+
+                if(channel.permissionsFor(client.user).has("ADMINISTRATOR") === true){
+                    guild.channels.create('blue-logs', {
+                        type: 'text',
+                        permissionOverwrites: [
+                            {
+                                id: guild.id,
+                                allow: ['VIEW_CHANNEL'],
+                            }]
+                        })
+                }
               }
             }
           }
@@ -175,44 +153,10 @@ client.on("guildCreate", guild => {
   })
 
 //sends message to log channel if logs are on
-
-//On member leave
-client.on('guildMemberRemove', (member) => {
-
-    console.log('test')
-
-    let blueLogs = member.guild.channels.cache.find(c => c.name === ('blue-logs'));
-    if (blueLogs){
-        logs = true;
-    }
-    if (!blueLogs) {
-        logs = false;
-    }
-    if(logs){
-        blueLogs.send(`${member} has left the server...`);
-    }
-
-    //client.commands.get('membercount').execute(msg);
-})
-
-//On member join
-client.on('guildMemberAdd', (member) => {
-
-    console.log('test')
-
-    let blueLogs = member.guild.channels.cache.find(c => c.name === ('blue-logs'));
-    if (blueLogs){
-        logs = true;
-    }
-    if (!blueLogs) {
-        logs = false;
-    }
-    if(logs){
-        blueLogs.send(`${member} has joined the server!`);
-    }
-
-    //client.commands.get('membercount').execute(msg);
-})
-
+if(logs === true){
+    client.on('guildMemberRemove',(member) => {
+        client.channels.cache.find('blue-log').send(`**${member.username}** has just left server...`);
+    })
+}
 //adds token so bot will initalize from .env
 client.login(process.env.SECRET);
