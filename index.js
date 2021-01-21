@@ -26,18 +26,23 @@ client.once('ready', async () => {
 
     //logs to console bot online
     console.log(`Logged in as ${client.user.tag} (${client.user.id}) on ${servers} servers`);
-
-    //sets game activity
-    client.user.setActivity(`${config.prefix}help | ${servers} servers!`);
+    
+    //posts to top.gg
+    setInterval(() => {
+        //posts stats to top.gg
+        dbl.postStats(client.guilds.size, client.shards.Id, client.shards.total);
+        //sets game activity
+        client.user.setActivity(`${config.prefix}help | ${servers} servers!`);
+    }, 1800000);
 });
 
     //*****************************************This is where version update goes when new version/features/bug fixes are added**********************************************
 
-    // **********************************************************************************************************************************************************************
+    //**********************************************************************************************************************************************************************
 
 //checks meesages to listen for command
 client.on('message', (msg) => {
-    let blueLogs
+    let blueLogs;
     blueLogs = msg.guild.channels.cache.find(c => c.name === ('blue-logs'));
     if (blueLogs){
         logs = true;
@@ -45,8 +50,21 @@ client.on('message', (msg) => {
     else{
         logs = false;
     }
-    
-    //if there is no message end the method
+
+    //checks blue haired server for voters on top.gg
+    if(msg.guild.id === '795324515034726410'){
+        let user = msg.author.id;
+        let role = msg.guild.roles.cache.find((role) => {
+            return role.id == '801158747070136330';
+        })
+        const member = msg.guild.members.cache.find((member) => {
+            return member.id === msg.author.id;
+        });
+        dbl.hasVoted(user).then(voted => {
+            if (voted) member.roles.add(role);
+        });
+    }
+
     if (msg.author.bot || !msg.content.startsWith(config.prefix)) return;
     
     //seperated the message into parts
@@ -129,7 +147,12 @@ client.on("guildCreate", guild => {
                     let embed = new Discord.MessageEmbed()
                         .setAuthor("Hello!")
                         .setColor("#486dAA") 
-                        .setDescription("Thank you for inviting me!\n\n We are still in production and have no database yet, so customization is limited. There are a few things you need to have for some functions to work properly.\n\nIf you have invited me as an admin, a channel called #blue-logs should have been created. This is our log channel. If it hasn't, please create it if you would llike logs!\n\nThe !mute command requires the role @MUTED\n\nTo see a full list of commands use !help\n\nTo follow production visit us at https://github.com/justinyates887/blue-haired-girl-bot \n\nTo report a bug please friend @erodias#9576 or join the Official Discord Channel: https://discord.gg/tb4mZWtXC8") //main text body
+                        .setDescription("Thank you for inviting me!\n\n We are still in production and have no database yet, so customization is limited. \
+                        There are a few things you need to have for some functions to work properly.\n\nIf you would like to recieve logs, please use the \
+                        command !addlogschannel. This will create a channel called #blue-logs where all of our logs will be sent. If there is no such \
+                        channel no logs will be sent.\n\nThe !mute command requires the role @MUTED\n\nTo see a full list of commands use !help\n\n\
+                        To follow production visit us at https://github.com/justinyates887/blue-haired-girl-bot \n\nTo report a bug please friend \
+                        @erodias#9576 or join the Official Discord Channel: https://discord.gg/tb4mZWtXC8") //main text body
                         .setFooter(config.footer)
                          channel.send(embed);
                 }
